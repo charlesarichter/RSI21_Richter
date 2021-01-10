@@ -5,7 +5,8 @@ pkg load optim
 pkg load signal
 
 ##addpath("/home/crichter/ccsl/Code_CCSL_Drive/Code/Model Evaluation")
-addpath("/home/crichter/ccsl/NSR20_Richter/code/models")
+##addpath("/home/crichter/ccsl/NSR20_Richter/code/models")
+addpath("/home/crichter/ccsl/RSI21_Richter/code/models")
 
 %% Load Data
 % folderName = '\\zeus\shared\Charlie Richter\FUTEK Experiments\Experiment 7-12\';
@@ -391,7 +392,8 @@ set(gcf,'units','centimeters','paperunits','centimeters','papersize',[width heig
 
 % saveFolder = '/Users/charlesrichter/Desktop/CR Shared Drive/Thesis/figures/';
 ##saveFolder = '/Users/charlesrichter/Desktop/PNAS11_Richter/figures/';
-saveFolder = '/home/crichter/ccsl/NSR20_Richter/paper/figures/';
+##saveFolder = '/home/crichter/ccsl/NSR20_Richter/paper/figures/';
+saveFolder = '/home/crichter/ccsl/RSI21_Richter/paper/figures/';
 saveas(gcf,[saveFolder,'pareto_mae_nofit_PNAS'],'epsc')
 % MARKERSIZES, FONTSIZES, DIMENSIONS, ETC ARE CHANGED FROM THE ORIGINAL
 % THESIS PLOT TO BE USED IN THE JOURNAL PUBLICATION.  REFER TO THE PLOTS

@@ -621,7 +621,8 @@ text(axwidth-.24,axheight-.1,'B','units','centimeters',...
 
 % set(gcf,'units','inches','papersize',[6 6],'paperpositionmode','auto')
 ##saveFolder = '/Users/charlesrichter/Desktop/PNAS11_Richter/figures/';
-saveFolder = '/home/crichter/ccsl/NSR20_Richter/paper/figures/';
+##saveFolder = '/home/crichter/ccsl/NSR20_Richter/paper/figures/';
+saveFolder = '/home/crichter/ccsl/RSI21_Richter/paper/figures/';
 saveas(gcf,[saveFolder,'eq_comparison_PNAS'],'epsc')
 end
 
@@ -764,7 +765,8 @@ end
 
 if bla == 4
 ##saveFolder = '/Users/charlesrichter/Desktop/PNAS11_Richter/figures/';
-saveFolder = '/home/crichter/ccsl/NSR20_Richter/paper/figures/';
+##saveFolder = '/home/crichter/ccsl/NSR20_Richter/paper/figures/';
+saveFolder = '/home/crichter/ccsl/RSI21_Richter/paper/figures/';
 saveas(gcf,[saveFolder,'eq_goodbad_PNAS'],'epsc')
 end
 end

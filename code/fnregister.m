@@ -205,8 +205,8 @@ for p = 5%1:size(fwin,1)
 %     set(h1,'units','inches','position',[-14 1 width+2 height+2])
 %     set(h1,'papersize',[width+1.5 height+1],'paperpositionmode','auto')
 ##    saveFolder = '\\zeus\shared\Charlie Richter\Thesis\figures\';
-    saveFolder = '/home/crichter/ccsl/NSR20_Richter/paper/figures/';
-
+##    saveFolder = '/home/crichter/ccsl/NSR20_Richter/paper/figures/';
+      saveFolder = '/home/crichter/ccsl/RSI21_Richter/paper/figures/';
 %     ylabel('Measured Lift Force (N)')
 %     ylabel('Stroke Angle \phi (\circ)')
 %     ylabel('Deflection Angle \psi (\circ)')
