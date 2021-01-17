@@ -17,6 +17,43 @@ exps_training = setdiff(exps_all, [exps_testing, exps_removed, 0]);
 ##eqdata = spreadsheet(exps_training_mask,2:end);
 ##force = spreadsheet(exps_training_mask,2);
 
+%% Equation sizes
+sz_plpi = 32;
+sz_plti = 46;
+sz_rw_liftonly = 96;
+sz_rw_liftam = 121;
+sz_jw = 130;
+sz_trans_rot = 118;
+sz_trans_amrot = 113;
+sz_trans_amtrans = 115;
+sz_trans_amtrans_amrot = 120;
+sz_trans_amrotddot = 106;
+sz_eq1 = 24;
+sz_eq2 = 19;
+sz_eq3 = 16;
+sz_eq4 = 14;
+sz_eq5 = 13;
+sz_eq6 = 12;
+
+% Planar Inertial -- fn_planarinertial -- COMPLEXITY 13
+% Total Inertial -- fn_totalinertial -- COMPLEXITY 27
+% Planar Lift Planar Inertial -- fn_planarlift_planarinertial -- COMPLEXITY 32
+% Planar Lift Total Inertial -- fn_planarlift_totalinertial -- COMPLEXITY 46
+% RW Lift Only Total Inertial -- fn_rw_liftonly -- COMPLEXITY 96
+% RW Lift and AM Total Inertial -- fn_rw_liftam -- COMPLEXITY 121
+% JW Lift and Total Inertial -- fn_jw -- COMPLEXITY 130
+% Analytical: fn_trans_rot -- fn_trans_rot -- COMPLEXITY 118
+% Analytical: fn_trans_amrot -- fn_trans_amrot -- COMPLEXITY 113
+% Analytical: fn_trans_amtrans -- fn_trans_amtrans -- COMPLEXITY 115
+% Analytical: fn_trans_amtrans_amrot -- fn_trans_amtrans_amrot -- COMPLEXITY 120
+% Analytical: fn_trans_amrotddot -- fn_trans_amrotddot -- COMPLEXITY 106
+% EQ 1 -- fn_eq1 -- COMPLEXITY 24
+% EQ 2 -- fn_eq2 -- COMPLEXITY 19
+% EQ 3 -- fn_eq3 -- COMPLEXITY 16
+% EQ 4 -- fn_eq4 -- COMPLEXITY 14
+% EQ 5 -- fn_eq5 -- COMPLEXITY 13
+% EQ 6 -- fn_eq6 -- COMPLEXITY 12
+
 %% Coefficients of Eureqa models (fit by Eureqa to training data)
 beta_eq1nf = [1.5723863e-8 1.2146853e-7 1.2146853e-7 1.2146853e-7 7.0700918e-7];
 beta_eq2nf = [1.419276e-8 1.2280232e-7 1.2280232e-7 1.1480129e-6];
