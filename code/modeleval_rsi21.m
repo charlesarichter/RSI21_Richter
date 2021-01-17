@@ -88,18 +88,18 @@ for i = 1:length(exps_training)
   beta_rw_liftonly(i,:) = nlinfit(eqdata,force,@fn_rw_liftonly,beta0_rw_liftonly);
   beta_rw_liftam(i,:) = nlinfit(eqdata,force,@fn_rw_liftam,beta0_rw_liftam);
   beta_jw(i,:) = nlinfit(eqdata,force,@fn_jw,beta0_jw);
-  beta_trans_rot(i,:) = nlinfit(eqdata,force,@fn_trans_rot,beta0_trans_rot);
-  beta_trans_amrot(i,:) = nlinfit(eqdata,force,@fn_trans_amrot,beta0_trans_amrot);
-  beta_trans_amtrans(i,:) = nlinfit(eqdata,force,@fn_trans_amtrans,beta0_trans_amtrans);
-  beta_trans_amtrans_amrot(i,:) = nlinfit(eqdata,force,@fn_trans_amtrans_amrot,beta0_trans_amtrans_amrot);
-  beta_trans_amrotddot(i,:) = nlinfit(eqdata,force,@fn_trans_amrotddot,beta0_trans_amrotddot);
+##  beta_trans_rot(i,:) = nlinfit(eqdata,force,@fn_trans_rot,beta0_trans_rot);
+##  beta_trans_amrot(i,:) = nlinfit(eqdata,force,@fn_trans_amrot,beta0_trans_amrot);
+##  beta_trans_amtrans(i,:) = nlinfit(eqdata,force,@fn_trans_amtrans,beta0_trans_amtrans);
+##  beta_trans_amtrans_amrot(i,:) = nlinfit(eqdata,force,@fn_trans_amtrans_amrot,beta0_trans_amtrans_amrot);
+##  beta_trans_amrotddot(i,:) = nlinfit(eqdata,force,@fn_trans_amrotddot,beta0_trans_amrotddot);
   
-  beta_eq1(i,:) = nlinfit(eqdata,force,@fn_eq1,beta_eq1nf);
-  beta_eq2(i,:) = nlinfit(eqdata,force,@fn_eq2,beta_eq2nf);
-  beta_eq3(i,:) = nlinfit(eqdata,force,@fn_eq3,beta_eq3nf);
-  beta_eq4(i,:) = nlinfit(eqdata,force,@fn_eq4,beta_eq4nf);
-  beta_eq5(i,:) = nlinfit(eqdata,force,@fn_eq5,beta_eq5nf);
-  beta_eq6(i,:) = nlinfit(eqdata,force,@fn_eq6,beta_eq6nf);
+##  beta_eq1(i,:) = nlinfit(eqdata,force,@fn_eq1,beta_eq1nf);
+##  beta_eq2(i,:) = nlinfit(eqdata,force,@fn_eq2,beta_eq2nf);
+##  beta_eq3(i,:) = nlinfit(eqdata,force,@fn_eq3,beta_eq3nf);
+##  beta_eq4(i,:) = nlinfit(eqdata,force,@fn_eq4,beta_eq4nf);
+##  beta_eq5(i,:) = nlinfit(eqdata,force,@fn_eq5,beta_eq5nf);
+##  beta_eq6(i,:) = nlinfit(eqdata,force,@fn_eq6,beta_eq6nf);
  
 end
 
@@ -109,18 +109,18 @@ beta_plti_mean = mean(beta_plti, 1);
 beta_rw_liftonly_mean = mean(beta_rw_liftonly, 1);
 beta_rw_liftam_mean = mean(beta_rw_liftam, 1);
 beta_jw_mean = mean(beta_jw, 1);
-beta_trans_rot_mean = mean(beta_trans_rot, 1);
-beta_trans_amrot_mean = mean(beta_trans_amrot, 1);
-beta_trans_amtrans_mean = mean(beta_trans_amtrans, 1);
-beta_trans_amtrans_amrot_mean = mean(beta_trans_amtrans_amrot, 1);
-beta_trans_amrotddot_mean = mean(beta_trans_amrotddot, 1);
+##beta_trans_rot_mean = mean(beta_trans_rot, 1);
+##beta_trans_amrot_mean = mean(beta_trans_amrot, 1);
+##beta_trans_amtrans_mean = mean(beta_trans_amtrans, 1);
+##beta_trans_amtrans_amrot_mean = mean(beta_trans_amtrans_amrot, 1);
+##beta_trans_amrotddot_mean = mean(beta_trans_amrotddot, 1);
 
-beta_eq1_mean = mean(beta_eq1, 1);
-beta_eq2_mean = mean(beta_eq2, 1);
-beta_eq3_mean = mean(beta_eq3, 1);
-beta_eq4_mean = mean(beta_eq4, 1);
-beta_eq5_mean = mean(beta_eq5, 1);
-beta_eq6_mean = mean(beta_eq6, 1);
+##beta_eq1_mean = mean(beta_eq1, 1);
+##beta_eq2_mean = mean(beta_eq2, 1);
+##beta_eq3_mean = mean(beta_eq3, 1);
+##beta_eq4_mean = mean(beta_eq4, 1);
+##beta_eq5_mean = mean(beta_eq5, 1);
+##beta_eq6_mean = mean(beta_eq6, 1);
 
 clear beta_plpi;
 clear beta_plti;
@@ -151,11 +151,11 @@ for i = 1:length(exps_testing)
   nofit_mae_rw_liftonly(i) = mean(abs(force-fn_rw_liftonly(beta_rw_liftonly_mean,eqdata)));
   nofit_mae_rw_liftam(i) = mean(abs(force-fn_rw_liftam(beta_rw_liftam_mean,eqdata)));
   nofit_mae_jw(i) = mean(abs(force-fn_jw(beta_jw_mean,eqdata)));
-  nofit_mae_trans_rot(i) = mean(abs(force-fn_trans_rot(beta_trans_rot_mean,eqdata)));
-  nofit_mae_trans_amrot(i) = mean(abs(force-fn_trans_amrot(beta_trans_amrot_mean,eqdata)));
-  nofit_mae_trans_amtrans(i) = mean(abs(force-fn_trans_amtrans(beta_trans_amtrans_mean,eqdata)));
-  nofit_mae_trans_amtrans_amrot(i) = mean(abs(force-fn_trans_amtrans_amrot(beta_trans_amtrans_amrot_mean,eqdata)));
-  nofit_mae_trans_amrotddot(i) = mean(abs(force-fn_trans_amrotddot(beta_trans_amrotddot_mean,eqdata)));
+##  nofit_mae_trans_rot(i) = mean(abs(force-fn_trans_rot(beta_trans_rot_mean,eqdata)));
+##  nofit_mae_trans_amrot(i) = mean(abs(force-fn_trans_amrot(beta_trans_amrot_mean,eqdata)));
+##  nofit_mae_trans_amtrans(i) = mean(abs(force-fn_trans_amtrans(beta_trans_amtrans_mean,eqdata)));
+##  nofit_mae_trans_amtrans_amrot(i) = mean(abs(force-fn_trans_amtrans_amrot(beta_trans_amtrans_amrot_mean,eqdata)));
+##  nofit_mae_trans_amrotddot(i) = mean(abs(force-fn_trans_amrotddot(beta_trans_amrotddot_mean,eqdata)));
   
   % Using coefficients fitted by Eureqa
   nofit_mae_eq1(i) = mean(abs(force-fn_eq1(beta_eq1nf,eqdata)));
@@ -181,12 +181,12 @@ mean_nofit_mae_plti = mean(nofit_mae_plti,2)
 mean_nofit_mae_rw_liftonly = mean(nofit_mae_rw_liftonly,2)
 mean_nofit_mae_rw_liftam = mean(nofit_mae_rw_liftam,2)
 mean_nofit_mae_jw = mean(nofit_mae_jw,2)
-disp("Other models");
-mean_nofit_mae_trans_rot = mean(nofit_mae_trans_rot,2)
-mean_nofit_mae_trans_amrot = mean(nofit_mae_trans_amrot,2)
-mean_nofit_mae_trans_amtrans = mean(nofit_mae_trans_amtrans,2)
-mean_nofit_mae_trans_amtrans_amrot = mean(nofit_mae_trans_amtrans_amrot,2)
-mean_nofit_mae_trans_amrotddot = mean(nofit_mae_trans_amrotddot,2)
+##disp("Other models");
+##mean_nofit_mae_trans_rot = mean(nofit_mae_trans_rot,2)
+##mean_nofit_mae_trans_amrot = mean(nofit_mae_trans_amrot,2)
+##mean_nofit_mae_trans_amtrans = mean(nofit_mae_trans_amtrans,2)
+##mean_nofit_mae_trans_amtrans_amrot = mean(nofit_mae_trans_amtrans_amrot,2)
+##mean_nofit_mae_trans_amrotddot = mean(nofit_mae_trans_amrotddot,2)
 disp("Eureqa models");
 mean_nofit_mae_eq1 = mean(nofit_mae_eq1,2)
 mean_nofit_mae_eq2 = mean(nofit_mae_eq2,2)
@@ -264,20 +264,20 @@ for i = 1:length(exps_testing)
   beta_jw = nlinfit(eqdata,force,@fn_jw,beta0_jw);
   fit_mae_jw(i) = mean(abs(force-fn_jw(beta_jw,eqdata)));
   
-  beta_trans_rot = nlinfit(eqdata,force,@fn_trans_rot,beta0_trans_rot);
-  fit_mae_trans_rot(i) = mean(abs(force-fn_trans_rot(beta_trans_rot,eqdata)));
-
-  beta_trans_amrot = nlinfit(eqdata,force,@fn_trans_amrot,beta0_trans_amrot);
-  fit_mae_trans_amrot(i) = mean(abs(force-fn_trans_amrot(beta_trans_amrot,eqdata)));
-
-  beta_trans_amtrans = nlinfit(eqdata,force,@fn_trans_amtrans,beta0_trans_amtrans);
-  fit_mae_trans_amtrans(i) = mean(abs(force-fn_trans_amtrans(beta_trans_amtrans,eqdata)));
-
-  beta_trans_amtrans_amrot = nlinfit(eqdata,force,@fn_trans_amtrans_amrot,beta0_trans_amtrans_amrot);
-  fit_mae_trans_amtrans_amrot(i) = mean(abs(force-fn_trans_amtrans_amrot(beta_trans_amtrans_amrot,eqdata)));
-
-  beta_trans_amrotddot = nlinfit(eqdata,force,@fn_trans_amrotddot,beta0_trans_amrotddot);
-  fit_mae_trans_amrotddot(i) = mean(abs(force-fn_trans_amrotddot(beta_trans_amrotddot,eqdata)));
+##  beta_trans_rot = nlinfit(eqdata,force,@fn_trans_rot,beta0_trans_rot);
+##  fit_mae_trans_rot(i) = mean(abs(force-fn_trans_rot(beta_trans_rot,eqdata)));
+##
+##  beta_trans_amrot = nlinfit(eqdata,force,@fn_trans_amrot,beta0_trans_amrot);
+##  fit_mae_trans_amrot(i) = mean(abs(force-fn_trans_amrot(beta_trans_amrot,eqdata)));
+##
+##  beta_trans_amtrans = nlinfit(eqdata,force,@fn_trans_amtrans,beta0_trans_amtrans);
+##  fit_mae_trans_amtrans(i) = mean(abs(force-fn_trans_amtrans(beta_trans_amtrans,eqdata)));
+##
+##  beta_trans_amtrans_amrot = nlinfit(eqdata,force,@fn_trans_amtrans_amrot,beta0_trans_amtrans_amrot);
+##  fit_mae_trans_amtrans_amrot(i) = mean(abs(force-fn_trans_amtrans_amrot(beta_trans_amtrans_amrot,eqdata)));
+##
+##  beta_trans_amrotddot = nlinfit(eqdata,force,@fn_trans_amrotddot,beta0_trans_amrotddot);
+##  fit_mae_trans_amrotddot(i) = mean(abs(force-fn_trans_amrotddot(beta_trans_amrotddot,eqdata)));
   
   beta_eq1 = nlinfit(eqdata,force,@fn_eq1,beta_eq1nf);
   fit_mae_eq1(i) = mean(abs(force-fn_eq1(beta_eq1,eqdata)));
@@ -291,8 +291,8 @@ for i = 1:length(exps_testing)
   beta_eq4 = nlinfit(eqdata,force,@fn_eq4,beta_eq4nf);
   fit_mae_eq4(i) = mean(abs(force-fn_eq4(beta_eq4,eqdata)));
   
-  beta_eq5 = nlinfit(eqdata,force,@fn_eq5,beta_eq5nf);
-  fit_mae_eq5(i) = mean(abs(force-fn_eq5(beta_eq5,eqdata)));
+##  beta_eq5 = nlinfit(eqdata,force,@fn_eq5,beta_eq5nf);
+##  fit_mae_eq5(i) = mean(abs(force-fn_eq5(beta_eq5,eqdata)));
   
   beta_eq6 = nlinfit(eqdata,force,@fn_eq6,beta_eq6nf);
   fit_mae_eq6(i) = mean(abs(force-fn_eq6(beta_eq6,eqdata)));
