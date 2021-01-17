@@ -300,24 +300,24 @@ end
 
 format short e
 disp("Analytical models for publication");
-mean(fit_mae_plpi,2)
-mean(fit_mae_plti,2)
-mean(fit_mae_rw_liftonly,2)
-mean(fit_mae_rw_liftam,2)
-mean(fit_mae_jw,2)
-disp("Other models");
-mean(fit_mae_trans_rot,2)
-mean(fit_mae_trans_amrot,2)
-mean(fit_mae_trans_amtrans,2)
-mean(fit_mae_trans_amtrans_amrot,2)
-mean(fit_mae_trans_amrotddot,2)
+mean_fit_mae_plpi = mean(fit_mae_plpi,2)
+mean_fit_mae_plti = mean(fit_mae_plti,2)
+mean_fit_mae_rw_liftonly = mean(fit_mae_rw_liftonly,2)
+mean_fit_mae_rw_liftam = mean(fit_mae_rw_liftam,2)
+mean_fit_mae_jw = mean(fit_mae_jw,2)
+##disp("Other models");
+##mean_fit_mae_trans_rot = mean(fit_mae_trans_rot,2)
+##mean_fit_mae_trans_amrot = mean(fit_mae_trans_amrot,2)
+##mean_fit_mae_trans_amtrans = mean(fit_mae_trans_amtrans,2)
+##mean_fit_mae_trans_amtrans_amrot = mean(fit_mae_trans_amtrans_amrot,2)
+##mean_fit_mae_trans_amrotddot = mean(fit_mae_trans_amrotddot,2)
 disp("Eureqa models");
-mean(fit_mae_eq1,2)
-mean(fit_mae_eq2,2)
-mean(fit_mae_eq3,2)
-mean(fit_mae_eq4,2)
-##mean(fit_mae_eq5,2)
-mean(fit_mae_eq6,2)
+mean_fit_mae_eq1 = mean(fit_mae_eq1,2)
+mean_fit_mae_eq2 = mean(fit_mae_eq2,2)
+mean_fit_mae_eq3 = mean(fit_mae_eq3,2)
+mean_fit_mae_eq4 = mean(fit_mae_eq4,2)
+##mean_fit_mae_eq5 = mean(fit_mae_eq5,2)
+mean_fit_mae_eq6 = mean(fit_mae_eq6,2)
 format
 
 return
