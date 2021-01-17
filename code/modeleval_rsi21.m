@@ -3,6 +3,8 @@ pkg load optim
 pkg load signal
 addpath("/home/crichter/ccsl/RSI21_Richter/code/models")
 
+savefolder = '/home/crichter/ccsl/RSI21_Richter/paper/figures/';
+
 %% Load Data
 spreadsheet = dlmread('/home/crichter/ccsl/selecteddata_defcorr_all_70.csv',',',2,0);
 
@@ -199,7 +201,7 @@ set(gcf,'units','inches','outerposition',[0 0 5.8 3])
 largesize = 20;
 smallsize = 16;
 rotangle = 30;
-fsize = 6;
+fsize = 12;
 
 plot(sz_plpi,mean_nofit_mae_plpi,'b.','Markersize',largesize);
 text(sz_plpi,mean_nofit_mae_plpi,'   U^2 Planar 1','rotation',rotangle,'fontsize',fsize);
@@ -223,6 +225,7 @@ xlabel('Equation Size (number of operators)','fontsize',fsize)
 ylim([0 19e-4])
 xlim([0 180])
 set(gca,'box','on');
+saveas(gcf,[savefolder, 'mae_nofit.eps'],'epsc');
 
 %% Test all models on test data using coefficients fit to TEST data
 disp("Fitting and testing on testing data...");
