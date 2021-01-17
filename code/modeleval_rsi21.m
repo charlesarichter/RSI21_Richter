@@ -196,12 +196,17 @@ mean_nofit_mae_eq4 = mean(nofit_mae_eq4,2)
 mean_nofit_mae_eq6 = mean(nofit_mae_eq6,2)
 format
 
-figure(1),clf,hold on
-set(gcf,'units','inches','outerposition',[0 0 5.8 3])
-largesize = 20;
-smallsize = 16;
+f = figure('visible','off');clf,hold on
+largesize = 30;
+smallsize = 20;
 rotangle = 30;
 fsize = 12;
+##width=8.7;height=5;
+width=16;height=10;
+a = get(f,'currentaxes');
+set(a,'box','on','layer','top','fontunits','points','fontsize',fsize)
+set(f,'units','centimeters','paperunits','centimeters','papersize',[width height],...
+    'paperposition',[0 0 width height])
 
 plot(sz_plpi,mean_nofit_mae_plpi,'b.','Markersize',largesize);
 text(sz_plpi,mean_nofit_mae_plpi,'   U^2 Planar 1','rotation',rotangle,'fontsize',fsize);
@@ -218,14 +223,24 @@ plot(sz_eq2,mean_nofit_mae_eq2,'k.','Markersize',smallsize);
 plot(sz_eq3,mean_nofit_mae_eq3,'k.','Markersize',smallsize);
 plot(sz_eq4,mean_nofit_mae_eq4,'k.','Markersize',smallsize);
 plot(sz_eq6,mean_nofit_mae_eq6,'k.','Markersize',smallsize);
-text(sz_eq1-6,mean_nofit_mae_eq1-1.5e-4,{'EQ';'Models'},'horizontalalignment','center','fontsize',fsize);
-
-ylabel('Mean Absolute Error (N)','fontsize',fsize)
+text(sz_eq1-6,mean_nofit_mae_eq1-1.8e-4,{'EQ';'Models'},'horizontalalignment','center','fontsize',fsize);
+ylabel('Mean Absolute Error (10^-^3 N)','fontsize',fsize)
 xlabel('Equation Size (number of operators)','fontsize',fsize)
-ylim([0 19e-4])
-xlim([0 180])
-set(gca,'box','on');
-saveas(gcf,[savefolder, 'mae_nofit.eps'],'epsc');
+
+xmin = 0;
+xmax = 180;
+ymin = 0;
+ymax = 1.9e-3;
+xlim([xmin xmax])
+ylim([ymin ymax])
+dy = 2e-4;
+yt = ymin:dy:ymax;
+yticks(yt)
+yticklabels(yt*1e3);
+dx = 20;
+xt = xmin:dx:xmax;
+xticks(xt)
+saveas(f,[savefolder, 'mae_nofit.eps'],'epsc');
 
 %% Test all models on test data using coefficients fit to TEST data
 disp("Fitting and testing on testing data...");
