@@ -196,16 +196,14 @@ mean_nofit_mae_eq4 = mean(nofit_mae_eq4,2)
 mean_nofit_mae_eq6 = mean(nofit_mae_eq6,2)
 format
 
-f = figure('visible','off');clf,hold on
+f1 = figure('visible','off');clf,hold on
 largesize = 30;
 smallsize = 20;
 rotangle = 30;
 fsize = 12;
-##width=8.7;height=5;
 width=16;height=10;
-a = get(f,'currentaxes');
-set(a,'box','on','layer','top','fontunits','points','fontsize',fsize)
-set(f,'units','centimeters','paperunits','centimeters','papersize',[width height],...
+set(get(f1,'currentaxes'),'box','on','layer','top','fontunits','points','fontsize',fsize)
+set(f1,'units','centimeters','paperunits','centimeters','papersize',[width height],...
     'paperposition',[0 0 width height])
 
 plot(sz_plpi,mean_nofit_mae_plpi,'b.','Markersize',largesize);
@@ -240,7 +238,7 @@ yticklabels(yt*1e3);
 dx = 20;
 xt = xmin:dx:xmax;
 xticks(xt)
-saveas(f,[savefolder, 'mae_nofit.eps'],'epsc');
+saveas(f1,[savefolder, 'mae_nofit.eps'],'epsc');
 
 %% Test all models on test data using coefficients fit to TEST data
 disp("Fitting and testing on testing data...");
