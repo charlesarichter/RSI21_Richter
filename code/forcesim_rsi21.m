@@ -30,9 +30,7 @@ Clmax = 1.9;
 
 %% EQ4 (individual terms) Calculations
 beta_eq4 = [1.4526972e-8 1.2489714e-7 1.0872654e-6];
-eq1 = fn_eq4_term_1(beta_eq4(1),eqdata);
-eq2 = fn_eq4_term_2(beta_eq4(2),eqdata);
-eq3 = fn_eq4_term_3(beta_eq4(3),eqdata);
+[~,eq1,eq2,eq3] = fn_eq4(beta_eq4,eqdata);
 
 % Overfit equation
 beta_eqbad = [14.9488, 13.5087, 1.38486, 407.258, 17.8828, 2.69241, 42.9085, 13.5087, 163.587, 0.0381286];
