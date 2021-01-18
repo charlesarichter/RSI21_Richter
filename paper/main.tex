@@ -289,7 +289,13 @@ fails to do so.}
 \end{figure}
 
 \subsection{Performance of models trained on one experiment versus many experiments}
-Figure~\ref{fig:eq_goodbad}(A) illustrates the predictive performance of two models on data within their training sets, while Figure~\ref{fig:eq_goodbad}(B,C,D) illustrate the performance of those same two models on data outside their training sets. The differences between these two models result from the fact that one of them, $EQ_4$ from Table~\ref{table:eqmodels} (drawn in blue), was trained on 58 separate experiments simultaneously, whereas the other one, shown below (drawn in red), is one of many models trained only on the single experiment shown in Figure~\ref{fig:eq_goodbad}(A):
+Figure~\ref{fig:eq_goodbad_1} illustrates the predictive performance of two models on data within
+their training sets, while Figures~\ref{fig:eq_goodbad_2},~\ref{fig:eq_goodbad_3},
+and~\ref{fig:eq_goodbad_4} illustrate the performance of those same two models on data outside
+their training sets. The differences between these two models result from the fact that one of them,
+$EQ_4$ from Table~\ref{table:eqmodels} (drawn in blue), was trained on 58 separate experiments
+simultaneously, whereas the other one, shown below (drawn in red), is one of many models trained
+only on the single experiment shown in Figure~\ref{fig:eq_goodbad_1}:
 \begin{align}
  Force = \frac{C_1 + C_2\psi^2 - C_3\psi}{C_4 + \ddot{\theta} + C_5\dot{\theta} + \cos(C_6 -
   \frac{C_7}{\psi^2} - C_8\psi)} - C_9.
