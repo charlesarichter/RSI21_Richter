@@ -298,12 +298,23 @@ Deviation 2 & \(\approx0\) & \it{None} \\
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=.48\textwidth]{figures/eq_comparison_PNAS}
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/eq_comparison_lift}
+\caption{\label{fig:eqcomparison_lift}}
+\end{subfigure}
+% \qquad
+\begin{subfigure}{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/eq_comparison_inertial}
+\caption{\label{fig:eqcomparison_inertial}}
+\end{subfigure}
 \caption{Comparison between terms of the analytical expressions (red) and data-driven models (blue).
-  (A) Primary translational aerodynamic lift proportional to the square of the wing velocity. (B)
-  Inertial forces related to the pendulum motion of the wing and deviation out of the stroke plane.
-  The modeling process automatically decoupled aerodynamic and inertial effects with no prior
-  knowledge of the system.  The total measured force is shown for reference (black).}
+  \subref{fig:eqcomparison_lift} Primary translational aerodynamic lift proportional to the square
+  of the wing velocity. \subref{fig:eqcomparison_inertial} Inertial forces related to the pendulum
+  motion of the wing and deviation out of the stroke plane. The modeling process automatically
+  decoupled aerodynamic and inertial effects with no prior knowledge of the system. The total
+  measured force is shown for reference (black).}
 \label{fig:eqcomparison}
 \end{figure}
 
