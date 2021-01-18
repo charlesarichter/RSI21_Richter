@@ -3,22 +3,11 @@ folderName = '/home/crichter/ccsl/';
 spreadsheet = dlmread('/home/crichter/ccsl/selecteddata_defcorr_all_70.csv',',',2,0);
 
 % Capture only the withheld experiments for testing
-exps = [8 26 33 37 39 48 52 53 95 103]; % 1,78 Removed
-EXPERIMENT_USED_TO_SHOWCASE_EQ4_COMPONENTS = 16; %%%%%%%%%%%
-
-totalexps = unique(spreadsheet(:,1));
-exps = totalexps(totalexps>0);
-nExps = max(exps);
-eqdataExps = cell(nExps,1);
-for i = 1:length(exps)
-    whichExp = unique(spreadsheet(spreadsheet(:,1)==exps(i),1));
-    eqdataExps{whichExp} = spreadsheet(spreadsheet(:,1)==whichExp,2:end);
-end
 
 toplot = [16 33 48 39 16];
 
-for bla = 1:length(toplot)
-eqdata = eqdataExps{toplot(bla)};
+for i_exp = 1:length(toplot)
+eqdata = spreadsheet(spreadsheet(:,1)==toplot(i_exp),2:end);
 
 %% Unpack Data
 force = eqdata(:,1);
@@ -43,7 +32,7 @@ domain = 0:length(force)-1;
 axbuf = 1.2;
 shadecolor = .9*[1 1 1];
 
-if bla == 5
+if i_exp == 5
     
 fontsz = 6;
 widthcm = 8.7;
@@ -130,7 +119,7 @@ saveFolder = '/home/crichter/ccsl/RSI21_Richter/paper/figures/';
 end
 
 %% Plot for PNAS
-if bla < 5
+if i_exp < 5
 txbuf = .2;
 fontsz = 6;
 widthcm2 = 17.8;
@@ -182,7 +171,7 @@ set(gcf,'units','centimeters','paperunits','centimeters','papersize',[widthcm2 h
     'paperposition',[0 0 widthcm2 heightcm2])
 set(gcf,'defaultlinelinewidth',.5,'visible','on')
 
-axes('units','centimeters','position',[plotgrid{bla} axwidth2 axheight2]),hold on
+axes('units','centimeters','position',[plotgrid{i_exp} axwidth2 axheight2]),hold on
 
 cross1 = find([0;diff(sign(strokedot))]);
 if cross1(1)>50
@@ -199,7 +188,7 @@ plot(force * plotfactor,'k')
 plot(eqbad * plotfactor,'r')
 plot((eq1+eq2+eq3) * plotfactor,'b')
 
-text(axwidth2-.24,axheight2-.1,plotlabels{bla},'units','centimeters',...
+text(axwidth2-.24,axheight2-.1,plotlabels{i_exp},'units','centimeters',...
     'HorizontalAlignment','right','VerticalAlignment','top',...
     'fontsize',10)
 
@@ -208,12 +197,12 @@ ylimit = axbuf*[min([force*plotfactor;(eqbad)*plotfactor;(eq1+eq2+eq3)*plotfacto
 ylim(ylimit)
 xlim([1 length(force)])
 set(gca,'box','on','layer','top','Xtick',normstroke,'XTickLabel',xticklab,'FontUnits','points','FontSize',fontsz)
-% title(plottitles(bla),'FontSize',fontsz)
-if bla==1 || bla==3,ylabel('Force (10^-^3 N)'),end
-if bla==3 || bla==4,xlabel('Stroke Cycle'),end
+% title(plottitles(i_exp),'FontSize',fontsz)
+if i_exp==1 || i_exp==3,ylabel('Force (10^-^3 N)'),end
+if i_exp==3 || i_exp==4,xlabel('Stroke Cycle'),end
 end
 
-if bla == 4
+if i_exp == 4
 saveFolder = '/home/crichter/ccsl/RSI21_Richter/paper/figures/';
 ##saveas(gcf,[saveFolder,'eq_goodbad_PNAS'],'epsc')
 end
