@@ -1,4 +1,4 @@
-function output = fn_eq4(coeffs,eqdata)
+function [output,term1,term2,term3] = fn_eq4(coeffs,eqdata)
 %% Unpack Data
 force = eqdata(:,1);
 stroke = eqdata(:,2);strokedot = eqdata(:,3);strokeddot = eqdata(:,4);
@@ -18,9 +18,14 @@ Izx	= eqdata(:,32);Izy	= eqdata(:,33);Izz= eqdata(:,34);
 C1 = coeffs(1);
 C2 = coeffs(2);
 C3 = coeffs(3);
-% C4 = coeffs(4);
-output = C1.*span.*Ycm.*defdot.*defdot.*cos(def)...
-    + C2.*strokedot.*span.*Xcm.*def...
-    - C3.*span.*devddot;
+
+term1 = C1.*span.*Ycm.*defdot.*defdot.*cos(def);
+term2 = C2.*strokedot.*span.*Xcm.*def;
+term3 = -C3.*span.*devddot;
+output = term1 + term2 + term3;
+
+% output = C1.*span.*Ycm.*defdot.*defdot.*cos(def)...
+%     + C2.*strokedot.*span.*Xcm.*def...
+%     - C3.*span.*devddot;
 
 % Coeffs = [1.4526972e-8 1.2489714e-7 1.0872654e-6]
