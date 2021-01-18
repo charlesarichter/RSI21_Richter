@@ -22,53 +22,63 @@ eqdata = eqdataExps{toplot(bla)};
 
 %% Unpack Data
 force = eqdata(:,1);
-stroke = eqdata(:,2);strokedot = eqdata(:,3);strokeddot = eqdata(:,4);
-def = eqdata(:,5);defdot = eqdata(:,6);defddot = eqdata(:,7);
-dev = eqdata(:,11);devdot = eqdata(:,12);devddot = eqdata(:,13);
-% dev = zeros(size(dev));devdot = zeros(size(devdot));devddot = zeros(size(devddot));
-span = 1e-3*eqdata(:,17);innerspan = 1e-3*eqdata(:,18);outerspan = 1e-3*eqdata(:,19);
-chord = 1e-3*eqdata(:,22);lowerchord = 1e-3*eqdata(:,20);upperchord = 1e-3*eqdata(:,21);
-Xcm	= eqdata(:,23);Ycm	= eqdata(:,24);Zcm= eqdata(:,25);
-Ixx	= eqdata(:,26);Ixy	= eqdata(:,27);Ixz= eqdata(:,28);
-Iyx	= eqdata(:,29);Iyy	= eqdata(:,30);Iyz= eqdata(:,31);
-Izx	= eqdata(:,32);Izy	= eqdata(:,33);Izz= eqdata(:,34);
+##stroke = eqdata(:,2);
+strokedot = eqdata(:,3);
+##strokeddot = eqdata(:,4);
+##def = eqdata(:,5);defdot = eqdata(:,6);defddot = eqdata(:,7);
+##dev = eqdata(:,11);devdot = eqdata(:,12);devddot = eqdata(:,13);
+##% dev = zeros(size(dev));devdot = zeros(size(devdot));devddot = zeros(size(devddot));
+##span = 1e-3*eqdata(:,17);innerspan = 1e-3*eqdata(:,18);outerspan = 1e-3*eqdata(:,19);
+##chord = 1e-3*eqdata(:,22);lowerchord = 1e-3*eqdata(:,20);upperchord = 1e-3*eqdata(:,21);
+##Xcm	= eqdata(:,23);Ycm	= eqdata(:,24);Zcm= eqdata(:,25);
+##Ixx	= eqdata(:,26);Ixy	= eqdata(:,27);Ixz= eqdata(:,28);
+##Iyx	= eqdata(:,29);Iyy	= eqdata(:,30);Iyz= eqdata(:,31);
+##Izx	= eqdata(:,32);Izy	= eqdata(:,33);Izz= eqdata(:,34);
 
-thickness = .000096; % m
-rho720 = 1215.9; % kg/m^3
-##rho720 = 1215.92; % kg/m^3 <<-- Changed to 1215.9 to be consistent with other fn's.
-rho = 1.2; % kg/m^3, density of air
-a = chord/2; % m
-yh = a-upperchord; % m
-xh = (innerspan+outerspan)/2; % m
-lambdaz = pi*rho*a.^2; % kg/m^3 * m^2
-lambdazw = -pi*rho*a.^2.*yh; % kg/m^3 * m^2 * m
+##thickness = .000096; % m
+##rho720 = 1215.9; % kg/m^3
+####rho720 = 1215.92; % kg/m^3 <<-- Changed to 1215.9 to be consistent with other fn's.
+##rho = 1.2; % kg/m^3, density of air
+##a = chord/2; % m
+##yh = a-upperchord; % m
+##xh = (innerspan+outerspan)/2; % m
+##lambdaz = pi*rho*a.^2; % kg/m^3 * m^2
+##lambdazw = -pi*rho*a.^2.*yh; % kg/m^3 * m^2 * m
 
-%% Inertial Reaction
-inertial = -yh.*chord.*thickness.*span.*rho720.*(defddot.*sin(def) + defdot.^2.*cos(def));
-inertialdev = -xh.*span.*chord.*thickness.*rho720.*(devddot.*cos(dev) - devdot.^2.*sin(dev));
-
-% Also calculated with full integration written out:
-inertial2 = .5*(upperchord.^2-lowerchord.^2).*thickness.*span.*rho720.*(defddot.*sin(def) + defdot.^2.*cos(def));
-inertialdev2 = -.5*(outerspan.^2-innerspan.^2).*chord.*thickness.*rho720.*(devddot.*cos(dev) - devdot.^2.*sin(dev));
+##%% Inertial Reaction
+##inertial = -yh.*chord.*thickness.*span.*rho720.*(defddot.*sin(def) + defdot.^2.*cos(def));
+##inertialdev = -xh.*span.*chord.*thickness.*rho720.*(devddot.*cos(dev) - devdot.^2.*sin(dev));
+##
+##% Also calculated with full integration written out:
+##inertial2 = .5*(upperchord.^2-lowerchord.^2).*thickness.*span.*rho720.*(defddot.*sin(def) + defdot.^2.*cos(def));
+##inertialdev2 = -.5*(outerspan.^2-innerspan.^2).*chord.*thickness.*rho720.*(devddot.*cos(dev) - devdot.^2.*sin(dev));
 
 %% RJW Calculation
 Clmax = 1.9;
-beta_trans = 1;
-beta_rot = 1;
+##beta_trans = 1;
+##beta_rot = 1;
 
 % Expressions for wy,wz taken from RJW equation 2.8, page 200
-wx = defdot-strokedot.*sin(dev);
-wxdot = defddot - (strokeddot.*sin(dev)+strokedot.*devdot.*cos(dev));
-wz = devdot.*cos(def) + strokedot.*sin(def).*cos(dev); % Vo = r_i*omega_z
-wy = -strokedot.*cos(def).*cos(dev) + devdot.*sin(def); % Wo = r_i*omega_y
-wydot = -strokeddot.*cos(def).*cos(dev)+strokedot.*defdot.*sin(def).*cos(dev)+...
-    strokedot.*devdot.*cos(def).*sin(dev)+devddot.*sin(def)+devdot.*defdot.*cos(def);
-wh = sqrt(wz.^2+wy.^2); % angular velocity of the wing hinge
+##wx = defdot-strokedot.*sin(dev);
+##wxdot = defddot - (strokeddot.*sin(dev)+strokedot.*devdot.*cos(dev));
+##wz = devdot.*cos(def) + strokedot.*sin(def).*cos(dev); % Vo = r_i*omega_z
+##wy = -strokedot.*cos(def).*cos(dev) + devdot.*sin(def); % Wo = r_i*omega_y
+##wydot = -strokeddot.*cos(def).*cos(dev)+strokedot.*defdot.*sin(def).*cos(dev)+...
+##    strokedot.*devdot.*cos(def).*sin(dev)+devddot.*sin(def)+devdot.*defdot.*cos(def);
+##wh = sqrt(wz.^2+wy.^2); % angular velocity of the wing hinge
+##
+##alpha = atan2(-wy,wz); % angle of attack relative to instantaneous velocity
+##beta = alpha+def; % angle between velocity vector and vertical reference
+##Cl = Clmax*sin(2*alpha); % coefficient of lift
+##Lrjw = .5*rho.*chord*(1/3).*(outerspan.^3-innerspan.^3).*Cl.*wh.^2.*sin(beta); % kg/m^3 * rad^2/s^2 * m * m^3 = kg*m/s^2
 
-alpha = atan2(-wy,wz); % angle of attack relative to instantaneous velocity
-beta = alpha+def; % angle between velocity vector and vertical reference
-Cl = Clmax*sin(2*alpha); % coefficient of lift
-Lrjw = .5*rho.*chord*(1/3).*(outerspan.^3-innerspan.^3).*Cl.*wh.^2.*sin(beta); % kg/m^3 * rad^2/s^2 * m * m^3 = kg*m/s^2
+[~,Lrjw,inertial,inertialdev] = fn_rw_liftonly(Clmax,eqdata);
+
+##max(abs(Lrjw - Lrjw2))
+##max(abs(inertial - inertial3))
+##max(abs(inertialdev - inertialdev3))
+##max(abs(inertial2 - inertial))
+##max(abs(inertialdev2 - inertialdev))
 
 ##Z01 = beta_trans*-lambdaz*.5.*(wydot-wx.*wz).*-(outerspan.^2-innerspan.^2);
 ##Z02 = beta_rot*-lambdazw.*wxdot.*(outerspan-innerspan);
@@ -76,15 +86,15 @@ Lrjw = .5*rho.*chord*(1/3).*(outerspan.^3-innerspan.^3).*Cl.*wh.^2.*sin(beta); %
 ##AMrjw = Z0spanwise.*-sin(def);
 ##RJWtot = Lrjw+AMrjw+inertial+inertialdev;
 
-eq1 = 1.4526972e-8.*1000.*span.*Ycm.*defdot.*defdot.*cos(def);
-C2 = 1.2489714e-7;
-eq2 = C2.*1000.*strokedot.*span.*Xcm.*def;
-eq3 = -1.0872654e-6.*1000.*span.*devddot;
+##eq1 = 1.4526972e-8.*1000.*span.*Ycm.*defdot.*defdot.*cos(def);
+##C2 = 1.2489714e-7;
+##eq2 = C2.*1000.*strokedot.*span.*Xcm.*def;
+##eq3 = -1.0872654e-6.*1000.*span.*devddot;
 
 beta_eq4 = [1.4526972e-8 1.2489714e-7 1.0872654e-6];
-eq4_term_1 = fn_eq4_term_1(beta_eq4(1),eqdata);
-eq4_term_2 = fn_eq4_term_2(beta_eq4(2),eqdata);
-eq4_term_3 = fn_eq4_term_3(beta_eq4(3),eqdata);
+eq1 = fn_eq4_term_1(beta_eq4(1),eqdata);
+eq2 = fn_eq4_term_2(beta_eq4(2),eqdata);
+eq3 = fn_eq4_term_3(beta_eq4(3),eqdata);
 
 ##max(abs(eq4_term_1 - eq1))
 ##max(abs(eq4_term_2 - eq2))
