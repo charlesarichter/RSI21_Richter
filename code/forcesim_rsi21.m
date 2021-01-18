@@ -93,7 +93,7 @@ shadecolor = .9*[1 1 1];
 
 fontsz = 12;
 widthcm2 = 15;
-heightcm2 = 9;
+heightcm2 = 7;
 plotfactor = 1000; % Multiply force by 1000 then explain that all forces are "e-3"
 xticklab = {'0','.5','1.0','1.5','2'};
         
