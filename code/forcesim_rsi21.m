@@ -34,7 +34,8 @@ Iyx	= eqdata(:,29);Iyy	= eqdata(:,30);Iyz= eqdata(:,31);
 Izx	= eqdata(:,32);Izy	= eqdata(:,33);Izz= eqdata(:,34);
 
 thickness = .000096; % m
-rho720 = 1215.92; % kg/m^3
+rho720 = 1215.9; % kg/m^3
+##rho720 = 1215.92; % kg/m^3 <<-- Changed to 1215.9 to be consistent with other fn's.
 rho = 1.2; % kg/m^3, density of air
 a = chord/2; % m
 yh = a-upperchord; % m
