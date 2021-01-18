@@ -1,4 +1,4 @@
-function output = fn_rw_liftonly(coeffs,eqdata)
+function [output,Lrjw,inertial,inerttheta] = fn_rw_liftonly(coeffs,eqdata)
 %% Unpack Data
 force = eqdata(:,1);
 stroke = eqdata(:,2);strokedot = eqdata(:,3);strokeddot = eqdata(:,4);
