@@ -170,8 +170,29 @@ practical tool in challenging engineering tasks like flapping wing design
 optimization.
 
 \section*{Methods}
+Our experimental apparatus consisted of a wing and actuator mounted to a
+vertical force sensor, with a high-speed video camera recording the motion of
+the wing from a top-down view and (using a mirror) also from a side-view.
+Figure~\ref{fig:apparatus} provides a diagram of the apparatus as well as
+illustrations of the three primary variables describing the orientation of the
+wing in the apparatus: Stroke ($\phi$), deflection ($\psi$) and deviation
+($\theta$). The stroke motion is enabled by a hinge joint and is the only
+actuated degree of freedom in the system. The deflection of the wing is enabled
+by a hinge in the root of the wing, and is a passive motion resulting from both
+inertial and aerodynamic effects. Deviation refers to the passive vertical
+motion of the wing out of its horizontal flapping plane, and is enabled only by
+the tolerances of the hinges and the flexibility of the wing structure itself.
 
 % Topical subheadings are allowed. Authors must ensure that their Methods section includes adequate experimental and characterization data necessary for others in the field to reproduce their work.
+
+\begin{figure}
+\centering
+\includegraphics[trim=0 15 0 5, clip, width=0.5\textwidth]{figures/apparatus}
+\caption{Schematic diagram of the experimental apparatus
+  showing three kinematic variables of the wing motion: stroke ($\phi$),
+  deflection ($\psi$) and deviation ($\theta$).\label{fig:apparatus}}
+\end{figure}
+
 
 \subsection*{3D Printed wings and actuation mechanism}
 The experimental wings were fabricated using an Objet Connex500 3D printer with
@@ -410,25 +431,12 @@ F_{deviation} = -X_{CM}M(\ddot{\theta}\cos\theta - \dot{\theta}^2\sin\theta),
 \end{equation}
 \noindent where \(X_{CM}\) and \(Y_{CM}\) are the coordinates of the center of wing area and \(M\) is the mass of the wing surface.
 
-\begin{figure}%[!htb]
+\begin{figure}
 \centering
-\begin{subfigure}{0.3\textwidth}
-\includegraphics[trim=0 15 0 5, clip, width=\textwidth]{figures/apparatus}
-\caption{\label{fig:apparatus}}
-\end{subfigure}
-\qquad
-\begin{subfigure}{0.5\textwidth}
-\centering
-\includegraphics[width=\textwidth]{figures/mae_nofit}
-\caption{\label{fig:pareto_mae}}
-\end{subfigure}
-\caption{\subref{fig:apparatus} Schematic diagram of the experimental apparatus
-  showing three kinematic variables of the wing motion: stroke ($\phi$),
-  deflection ($\psi$) and deviation ($\theta$). \subref{fig:pareto_mae} Pareto
-  plot of all data-driven (``EQ Models'') and analytical models using mean
-  values for model coefficients. All data-driven models were smaller and more
-  accurate than analytical models.
-}
+\includegraphics[width=0.5\textwidth]{figures/mae_nofit}
+\caption{Pareto plot of all data-driven (``EQ Models'') and analytical models
+  using mean values for model coefficients. All data-driven models were smaller
+  and more accurate than analytical models.\label{fig:pareto_mae}}
 \end{figure}
 
 \subsection*{Evaluation of Model Performance}
