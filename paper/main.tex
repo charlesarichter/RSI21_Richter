@@ -33,14 +33,15 @@
   \normalsize
 }
 
-\title{Automated data-driven symbolic modeling of the lift forces acting on flapping wings}
+\title{Automated data-driven symbolic modeling of the lift forces acting on
+flapping wings}
 \date{}
 
-\author[1]{Charles Richter}
-\author[2,3]{Hod Lipson}
-\affil[1]{Cornell University, School of Mechanical and Aerospace Engineering, Ithaca, United States}
-\affil[2]{Columbia University, Department of Mechanical Engineering, New York, United States}
-\affil[3]{Columbia University, Data Science Institute, New York, United States}
+\author[1]{Charles Richter} \author[2,3]{Hod Lipson} \affil[1]{Cornell
+University, School of Mechanical and Aerospace Engineering, Ithaca, United
+States} \affil[2]{Columbia University, Department of Mechanical Engineering, New
+York, United States} \affil[3]{Columbia University, Data Science Institute, New
+York, United States}
 
 \begin{document}
 \maketitle
@@ -66,8 +67,8 @@ identifying the structural building blocks of a wide variety of unknown
 dynamical systems.
 \end{abstract}
 
-\keywords{flapping flight, unsteady aerodynamics, data mining, symbolic regression, evolutionary
-computation}
+\keywords{flapping flight, unsteady aerodynamics, data mining, symbolic
+regression, evolutionary computation}
 
 % \flushbottom
 % \maketitle
@@ -107,33 +108,38 @@ measurements \cite{wang2004unsteady}.
 
 % \subsection{Automated modeling} 
 
-Quasi-steady representations of lift are particularly well suited to the process of symbolic
-regression, which harnesses computational power to conduct an automated search over the space of all
-kinematic variables and geometric parameters to find equations that most accurately predict the
-forces on a wing.  Symbolic regression algorithms are based on evolutionary computation
-\cite{koza1992genetic,forrest1993genetic} and have been used to model complex systems defined by explicit
-\cite{duffy2002using,fillon2007symbolic,bautu2005symbolic}, implicit \cite{schmidt2010symbolic}, iterated
-\cite{schmidt2009solving} and differential equations \cite{bongard2007automated}.  The
-process underlying this evolutionary computation approach is to generate an initially random
-population of equations combining time-series data and constant variables with algebraic operators,
-analytic functions and constants.  These candidate equations are then evaluated to measure their
-accuracy in predicting the measured output of the system or partial derivatives within the data.  In
-each iteration of the algorithm, the best candidates are retained and varied by recombining and
-varying their subexpressions. The algorithm is terminated when a desired level of accuracy is
-reached.  In this case, the time-series data includes the orientations, velocities and accelerations
-of wings, the constant variables include chord lengths, wingspans, centroids of wing area and other
-physical constants, and the known output of the system is the measured vertical force produced
-during flapping.  The resulting equations returned by the algorithm are quasi-steady models that can
-be compared to existing equations from the literature.
+Quasi-steady representations of lift are particularly well suited to the process
+of symbolic regression, which harnesses computational power to conduct an
+automated search over the space of all kinematic variables and geometric
+parameters to find equations that most accurately predict the forces on a wing.
+Symbolic regression algorithms are based on evolutionary computation
+\cite{koza1992genetic,forrest1993genetic} and have been used to model complex
+systems defined by explicit
+\cite{duffy2002using,fillon2007symbolic,bautu2005symbolic}, implicit
+\cite{schmidt2010symbolic}, iterated \cite{schmidt2009solving} and differential
+equations \cite{bongard2007automated}.  The process underlying this evolutionary
+computation approach is to generate an initially random population of equations
+combining time-series data and constant variables with algebraic operators,
+analytic functions and constants.  These candidate equations are then evaluated
+to measure their accuracy in predicting the measured output of the system or
+partial derivatives within the data.  In each iteration of the algorithm, the
+best candidates are retained and varied by recombining and varying their
+subexpressions. The algorithm is terminated when a desired level of accuracy is
+reached.  In this case, the time-series data includes the orientations,
+velocities and accelerations of wings, the constant variables include chord
+lengths, wingspans, centroids of wing area and other physical constants, and the
+known output of the system is the measured vertical force produced during
+flapping.  The resulting equations returned by the algorithm are quasi-steady
+models that can be compared to existing equations from the literature.
 
 % \subsection{Measurement of lift forces} 
 
-Numerous studies have measured the forces produced by a flapping wing in
-various experimental setups including flapping in a liquid bath such as oil
+Numerous studies have measured the forces produced by a flapping wing in various
+experimental setups including flapping in a liquid bath such as oil
 \cite{walker2009photogrammetric}, by tracking the kinematics of insects in
 flight \cite{fry2003aerodynamics,ristroph2009automated} and by tracking the
-detailed wing motions and visualizing the airflow around the wings of insects
-in a wind tunnel \cite{young2009details}.  Only recently have studies directly
+detailed wing motions and visualizing the airflow around the wings of insects in
+a wind tunnel \cite{young2009details}.  Only recently have studies directly
 measured the forces involved in flapping with at-scale robotic wings or actual
 insects in air \cite{whitney2010aeromechanics,graetzel2008real}.  In general,
 measuring the forces produced by flapping wings in air is difficult because the
@@ -144,20 +150,24 @@ flapping wings examined in this work represent a size range appropriate for
 micro air vehicles, and produced forces large enough to be measured by a
 commercially available load cell.
 
-Here we present a series of experiments measuring the kinematics and lift forces produced by eleven
-differently sized wings flapping at multiple speeds and amplitudes with Reynolds numbers between
-2500 and 5000. Several quasi-steady models from the literature are shown to exhibit strong agreement
-with the experimental data. Then a set of data-driven equations were automatically generated from
-the data using the symbolic regression algorithm developed by Schmidt and Lipson
-\cite{schmidt2009distilling}. These data-driven models exhibit several desirable properties. First,
-they are at least as accurate as quasi-steady equations from the literature yet they are much
-simpler.  Second, they naturally separate distinct, understandable physical effects including terms
-corresponding to inertial forces and aerodynamic lift. Finally, they generalize well, providing
-accurate force predictions for similar experiments outside their training dataset, indicating that
-they correctly identify and assemble the most salient and predictive variables. These results
-indicate that data-driven symbolic regression may be a powerful scientific tool in discovering the
-underlying structure of many complex systems, as well as providing a practical tool in challenging
-engineering tasks like flapping wing design optimization.
+Here we present a series of experiments measuring the kinematics and lift forces
+produced by eleven differently sized wings flapping at multiple speeds and
+amplitudes with Reynolds numbers between 2500 and 5000. Several quasi-steady
+models from the literature are shown to exhibit strong agreement with the
+experimental data. Then a set of data-driven equations were automatically
+generated from the data using the symbolic regression algorithm developed by
+Schmidt and Lipson \cite{schmidt2009distilling}. These data-driven models
+exhibit several desirable properties. First, they are at least as accurate as
+quasi-steady equations from the literature yet they are much simpler.  Second,
+they naturally separate distinct, understandable physical effects including
+terms corresponding to inertial forces and aerodynamic lift. Finally, they
+generalize well, providing accurate force predictions for similar experiments
+outside their training dataset, indicating that they correctly identify and
+assemble the most salient and predictive variables. These results indicate that
+data-driven symbolic regression may be a powerful scientific tool in discovering
+the underlying structure of many complex systems, as well as providing a
+practical tool in challenging engineering tasks like flapping wing design
+optimization.
 
 \section*{Results}
 
@@ -177,9 +187,25 @@ engineering tasks like flapping wing design optimization.
 % Topical subheadings are allowed.
 
 \subsection*{Data-driven models}
-The strategy for modeling lift forces symbolically was to train candidate equations on 58 of the 68 total experiments simultaneously, with the remaining ten reserved for testing.  These 58 training sets were intended to represent a diverse sampling of wing geometry, flapping speed and amplitude combinations.  The results from these 58 experiments were compiled into a single dataset listing roughly two periods of smoothed, registered flapping data per experiment.  The data consisted of instantaneous measured vertical force along with the measured value of each kinematic variable, the first and second derivatives of those variables, and the geometric parameters necessary to describe the wing's shape and distribution of area, totaling 31 separate variables.
+The strategy for modeling lift forces symbolically was to train candidate
+equations on 58 of the 68 total experiments simultaneously, with the remaining
+ten reserved for testing.  These 58 training sets were intended to represent a
+diverse sampling of wing geometry, flapping speed and amplitude combinations.
+The results from these 58 experiments were compiled into a single dataset
+listing roughly two periods of smoothed, registered flapping data per
+experiment.  The data consisted of instantaneous measured vertical force along
+with the measured value of each kinematic variable, the first and second
+derivatives of those variables, and the geometric parameters necessary to
+describe the wing's shape and distribution of area, totaling 31 separate
+variables.
 
-By training on 58 experiments simultaneously, the symbolic regression algorithm generated equations that fit all of the data, using the some, but not all, of the provided variables to account for variations in kinematics and wing geometry between experiments.   Table~\ref{table:eqmodels} lists five of the leading candidate models, which were trained using mean absolute error (MAE) as the fitness metric during the search. The search was conducted for approximately 24 hours, using 60 cores on a computing cluster.
+By training on 58 experiments simultaneously, the symbolic regression algorithm
+generated equations that fit all of the data, using the some, but not all, of
+the provided variables to account for variations in kinematics and wing geometry
+between experiments.   Table~\ref{table:eqmodels} lists five of the leading
+candidate models, which were trained using mean absolute error (MAE) as the
+fitness metric during the search. The search was conducted for approximately 24
+hours, using 60 cores on a computing cluster.
 
 \begin{table}[ht]
 \centering
@@ -200,15 +226,24 @@ Whitney-Wood & \(L_{trans}, AM_{trans}, AM_{rot}\) & 121 & 1.21\e{-3}\\
 Pesavento-Wang & \(L_{trans}, L_{rot}, AM_{trans}, AM_{trans-rot}\) & 130 & 1.20\e{-3}\\
 \hline
 \end{tabular}
-\caption{\label{table:eqmodels}Comparison of data-driven models and analytical equations of lift.
-The models are sorted by equation size, which is calculated as the sum of arithmetic and
-trigonometric operators required to compute a force prediction from kinematic and geometric data.
-MAE reports average mean absolute error (in Newtons of vertical force) for the ten test
-experiments.}
+\caption{\label{table:eqmodels}Comparison of data-driven models and analytical
+  equations of lift.  The models are sorted by equation size, which is
+  calculated as the sum of arithmetic and trigonometric operators required to
+  compute a force prediction from kinematic and geometric data.  MAE reports
+  average mean absolute error (in Newtons of vertical force) for the ten test
+  experiments.}
 \end{table}
 
 \subsection*{Analytical models for comparison}
-The analytical models used for comparison are also listed in Table~\ref{table:eqmodels}.  These models consist of calculated inertial forces added to a collection of aerodynamic terms.  The primary aerodynamic contribution in all quasi-steady models is a translational lift term proportional to the squared velocity of each span-element of the wing that is related to the wing's angle of attack and empirically determined coefficient of lift.  This term is labeled $L_{planar}$ when wing motions out of the nominal horizontal flapping plane are neglected in the calculations, or $L_{trans}$ when out-of-plane motions are included. This translational lift term is given by:
+The analytical models used for comparison are also listed in
+Table~\ref{table:eqmodels}.  These models consist of calculated inertial forces
+added to a collection of aerodynamic terms.  The primary aerodynamic
+contribution in all quasi-steady models is a translational lift term
+proportional to the squared velocity of each span-element of the wing that is
+related to the wing's angle of attack and empirically determined coefficient of
+lift.  This term is labeled $L_{planar}$ when wing motions out of the nominal
+horizontal flapping plane are neglected in the calculations, or $L_{trans}$ when
+out-of-plane motions are included. This translational lift term is given by:
 \begin{equation}
 L_{trans}=(\nicefrac{1}{2})\rho v^2AC_L,
 \end{equation}
@@ -217,9 +252,22 @@ where \(v\) is the wing velocity, \(\rho\) is the fluid density, \(A\) is the ar
 C_L = C_{Lmax}\sin(2\alpha).
 \end{equation}
 
-Other aerodynamic contributors include rotational lift proportional to the product of a wing's rotational and translational velocities, labeled $L_{rot}$, as well as "added-mass" effects related to the accelerations of fluid surrounding the wing \cite{sedov1965two}.  These added mass terms are proportional to the wing's linear acceleration ($AM_{trans}$), rotational acceleration ($AM_{rot}$), or a product of the two ($AM_{trans-rot}$).  Two sets of quasi-steady equations from the literature include various combinations of such terms \cite{whitney2010aeromechanics,pesavento2004falling}, which allow more flexible model fitting through additional coefficients.
+Other aerodynamic contributors include rotational lift proportional to the
+product of a wing's rotational and translational velocities, labeled $L_{rot}$,
+as well as "added-mass" effects related to the accelerations of fluid
+surrounding the wing \cite{sedov1965two}.  These added mass terms are
+proportional to the wing's linear acceleration ($AM_{trans}$), rotational
+acceleration ($AM_{rot}$), or a product of the two ($AM_{trans-rot}$).  Two sets
+of quasi-steady equations from the literature include various combinations of
+such terms \cite{whitney2010aeromechanics,pesavento2004falling}, which allow
+more flexible model fitting through additional coefficients.
 
-Inertial forces acting on the wings are modeled as a sum of two contributions.  The primary contribution results from the pendulum-like swinging motion that occurs when the deflection angle ($\psi$) flips at stroke reversal.  The secondary contribution results from small angle deviations from the horizontal flapping plane ($\theta$).  These angles are depicted in Figure~\ref{fig:apparatus}.  These inertial forces are given by:
+Inertial forces acting on the wings are modeled as a sum of two contributions.
+The primary contribution results from the pendulum-like swinging motion that
+occurs when the deflection angle ($\psi$) flips at stroke reversal.  The
+secondary contribution results from small angle deviations from the horizontal
+flapping plane ($\theta$).  These angles are depicted in
+Figure~\ref{fig:apparatus}.  These inertial forces are given by:
 \begin{equation}\label{sdbla}
 F_{pendulum} = Y_{CM}M(\ddot{\psi}\sin\psi + \dot{\psi}^2\cos\psi)
 \end{equation}
@@ -241,21 +289,51 @@ F_{deviation} = -X_{CM}M(\ddot{\theta}\cos\theta - \dot{\theta}^2\sin\theta),
 \includegraphics[width=\textwidth]{figures/mae_nofit}
 \caption{\label{fig:pareto_mae}}
 \end{subfigure}
-\caption{\subref{fig:apparatus} Schematic diagram of the experimental apparatus showing three
-  kinematic variables of the wing motion: stroke ($\phi$), deflection ($\psi$) and deviation
-  ($\theta$). \subref{fig:pareto_mae} Pareto plot of all data-driven (``EQ Models'') and analytical
-  models using mean values for model coefficients. All data-driven models were smaller and more
+\caption{\subref{fig:apparatus} Schematic diagram of the experimental apparatus
+  showing three kinematic variables of the wing motion: stroke ($\phi$),
+  deflection ($\psi$) and deviation ($\theta$). \subref{fig:pareto_mae} Pareto
+  plot of all data-driven (``EQ Models'') and analytical models using mean
+  values for model coefficients. All data-driven models were smaller and more
   accurate than analytical models.
 }
 \end{figure}
 
 \subsection*{Evaluation of Model Performance}
-An evaluation of model performance allows comparison between analytical models and the equations developed through the data mining process.  Equations are judged by their accuracy and complexity.  In this case, the complexity or size of an equation was measured by simply counting the number of arithmetic and trigonometric operators used to combine the measured kinematic variables and geometric properties into an equation for instantaneous vertical force.  Both our data-driven models and the analytical equations are measured in this way.  For fairness, constants in the analytical models that would have been lumped together into larger coefficients by the symbolic regression algorithm (such as material density, air density, \(\pi\) or factors of integration) are also lumped together in the calculations of size for the analytical equations.  The size of the inertial calculations was added to the sizes of analytical lift calculations.  The 
-pendulum motion has an equation size of 13 and the total inertial calculation including out-of-plane deviation has a size of 27.
+An evaluation of model performance allows comparison between analytical models
+and the equations developed through the data mining process.  Equations are
+judged by their accuracy and complexity.  In this case, the complexity or size
+of an equation was measured by simply counting the number of arithmetic and
+trigonometric operators used to combine the measured kinematic variables and
+geometric properties into an equation for instantaneous vertical force.  Both
+our data-driven models and the analytical equations are measured in this way.
+For fairness, constants in the analytical models that would have been lumped
+together into larger coefficients by the symbolic regression algorithm (such as
+material density, air density, \(\pi\) or factors of integration) are also
+lumped together in the calculations of size for the analytical equations. The
+size of the inertial calculations was added to the sizes of analytical lift
+calculations.  The pendulum motion has an equation size of 13 and the total
+inertial calculation including out-of-plane deviation has a size of 27.
 
-Table~\ref{table:eqmodels} shows the size of all equations considered in this study, and indicates that the analytical models are all significantly more complex than our data-driven models.  One of the reasons for high complexity in the analytical models is the dependence on wing geometry and integration of forces over the span and chord of the wing.  A second reason for the complexity in analytical models is the number of geometric and coordinate transformations required to compute the necessary linear and rotational velocities.  In this sense, several terms generated during symbolic regression can be considered to be approximations of much more subtle calculations of kinematic quantities.
+Table~\ref{table:eqmodels} shows the size of all equations considered in this
+study, and indicates that the analytical models are all significantly more
+complex than our data-driven models.  One of the reasons for high complexity in
+the analytical models is the dependence on wing geometry and integration of
+forces over the span and chord of the wing.  A second reason for the complexity
+in analytical models is the number of geometric and coordinate transformations
+required to compute the necessary linear and rotational velocities.  In this
+sense, several terms generated during symbolic regression can be considered to
+be approximations of much more subtle calculations of kinematic quantities.
 
-The accuracy of each equation was measured as the mean absolute error (MAE) between the predicted and actual vertical force (in Newtons) produced by the flapping wing.  Figure~\ref{fig:pareto_mae} shows the Pareto plot of all models considered, depicting accuracy as a function of model complexity. It is important to note that all data-driven models have between three and five coefficients, so tuning these coefficients allows further minimization of error compared to the analytical models, which have between one and three.  Nevertheless, discovery of models with smaller error than theoretical predictions that are simultaneously much simpler is a significant feat for the data mining process and symbolic regression.
+The accuracy of each equation was measured as the mean absolute error (MAE)
+between the predicted and actual vertical force (in Newtons) produced by the
+flapping wing.  Figure~\ref{fig:pareto_mae} shows the Pareto plot of all models
+considered, depicting accuracy as a function of model complexity. It is
+important to note that all data-driven models have between three and five
+coefficients, so tuning these coefficients allows further minimization of error
+compared to the analytical models, which have between one and three.
+Nevertheless, discovery of models with smaller error than theoretical
+predictions that are simultaneously much simpler is a significant feat for the
+data mining process and symbolic regression.
 
 \begin{figure}[ht]
 \centering
@@ -295,26 +373,63 @@ fails to do so.}
 \end{figure}
 
 \subsection*{Performance of models trained on one experiment versus many experiments}
-Figure~\ref{fig:eq_goodbad_1} illustrates the predictive performance of two models on data within
-their training sets, while Figures~\ref{fig:eq_goodbad_2},~\ref{fig:eq_goodbad_3},
-and~\ref{fig:eq_goodbad_4} illustrate the performance of those same two models on data outside
-their training sets. The differences between these two models result from the fact that one of them,
-$EQ_4$ from Table~\ref{table:eqmodels} (drawn in blue), was trained on 58 separate experiments
-simultaneously, whereas the other one, shown below (drawn in red), is one of many models trained
-only on the single experiment shown in Figure~\ref{fig:eq_goodbad_1}:
+Figure~\ref{fig:eq_goodbad_1} illustrates the predictive performance of two
+models on data within their training sets, while
+Figures~\ref{fig:eq_goodbad_2},~\ref{fig:eq_goodbad_3},
+and~\ref{fig:eq_goodbad_4} illustrate the performance of those same two models
+on data outside their training sets. The differences between these two models
+result from the fact that one of them, $EQ_4$ from Table~\ref{table:eqmodels}
+(drawn in blue), was trained on 58 separate experiments simultaneously, whereas
+the other one, shown below (drawn in red), is one of many models trained only on
+the single experiment shown in Figure~\ref{fig:eq_goodbad_1}:
 \begin{align}
  Force = \frac{C_1 + C_2\psi^2 - C_3\psi}{C_4 + \ddot{\theta} + C_5\dot{\theta} + \cos(C_6 -
   \frac{C_7}{\psi^2} - C_8\psi)} - C_9.
 \label{eq:badeq}
 \end{align}
-Thus, $EQ_4$ shows strong qualitative and quantitative agreement with all of the experiments in Figure~\ref{fig:eq_goodbad}, indicating that this model is not over-fit but in fact generalizes well to new data. Equation~\eqref{eq:badeq}, on the other hand, fails to accurately predict the recorded data outside its training set.  Insufficient data and over-fitting are potential pitfalls of data-driven modeling, but are overcome in this case with a diverse sampling of training data.
+Thus, $EQ_4$ shows strong qualitative and quantitative agreement with all of the
+experiments in Figure~\ref{fig:eq_goodbad}, indicating that this model is not
+over-fit but in fact generalizes well to new data. Equation~\eqref{eq:badeq}, on
+the other hand, fails to accurately predict the recorded data outside its
+training set.  Insufficient data and over-fitting are potential pitfalls of
+data-driven modeling, but are overcome in this case with a diverse sampling of
+training data.
 
-Since Equation~\eqref{eq:badeq} is unable to accurately predict forces outside its training set, it is unlikely to offer any insight into the underlying physical processes.  $EQ_4$, however, must capture some of the underlying structure of the physics in order to generalize to data upon which it was not trained.  In data-driven modeling, training on many experiments simultaneously helps to reject candidate equations that may fit some, but not all, of the data, and helps to retain those models that reflect the underlying physics and offer insight into the structure of the additive components that compose the observed behavior of a complex dynamical system.
+Since Equation~\eqref{eq:badeq} is unable to accurately predict forces outside
+its training set, it is unlikely to offer any insight into the underlying
+physical processes.  $EQ_4$, however, must capture some of the underlying
+structure of the physics in order to generalize to data upon which it was not
+trained.  In data-driven modeling, training on many experiments simultaneously
+helps to reject candidate equations that may fit some, but not all, of the data,
+and helps to retain those models that reflect the underlying physics and offer
+insight into the structure of the additive components that compose the observed
+behavior of a complex dynamical system.
 
 \subsection*{Correspondence of physical terms}
-One powerful result of the data-driven modeling approach is that in many cases, certain terms from the data-driven models closely match physically understandable terms from the analytical models.  The correspondence between these terms is listed in Table~\ref{table:eqcorrespondence}. Taking model $EQ_4$ as an example, all three terms show strong resemblance to inertial and aerodynamic components of the analytical models.  Figure~\ref{fig:eqcomparison} shows a comparison between the simple velocity-squared aerodynamic lift prediction and the second term of $EQ_4$: \(C_2RX_{CM}\psi\dot{\phi}\).  These two calculations are numerically very similar, yet the third term of $EQ_4$ is much simpler than $L_{trans}$.
+One powerful result of the data-driven modeling approach is that in many cases,
+certain terms from the data-driven models closely match physically
+understandable terms from the analytical models.  The correspondence between
+these terms is listed in Table~\ref{table:eqcorrespondence}. Taking model $EQ_4$
+as an example, all three terms show strong resemblance to inertial and
+aerodynamic components of the analytical models.  Figure~\ref{fig:eqcomparison}
+shows a comparison between the simple velocity-squared aerodynamic lift
+prediction and the second term of $EQ_4$: \(C_2RX_{CM}\psi\dot{\phi}\).  These
+two calculations are numerically very similar, yet the third term of $EQ_4$ is
+much simpler than $L_{trans}$.
 
-Similarly, the sum of terms 1 and 3, \(C_1RY_{CM}\dot{\psi}^2\cos(\psi) - C_3R\ddot{\theta}\), closely approximates the calculation of inertial forces including the pendulum motion of the wing as well as the out-of-plane deviation.  Figure~\ref{fig:eqcomparison} also shows these two calculations, indicating very similar structure.  While $EQ_4$'s approximation of these inertial forces does not precisely match the analytical calculation, it follows a very similar pattern and is much simpler.  Remarkably, these inertial terms utilize some of the same variable combinations as the analytical calculations to express the inertial force, namely \(Y_{CM}\dot{\psi}^2\cos(\psi)\) and \(\ddot{\theta}\), with different coefficients to express the geometric variation between wings and small angle approximations \(\cos\theta\approx1\), \(\sin\theta\approx0\) for small out-of-plane deviation angles.  Since \(|\theta|<2^{\circ}\) in general, the small angle approximation is valid.
+Similarly, the sum of terms 1 and 3, \(C_1RY_{CM}\dot{\psi}^2\cos(\psi) -
+C_3R\ddot{\theta}\), closely approximates the calculation of inertial forces
+including the pendulum motion of the wing as well as the out-of-plane deviation.
+Figure~\ref{fig:eqcomparison} also shows these two calculations, indicating very
+similar structure.  While $EQ_4$'s approximation of these inertial forces does
+not precisely match the analytical calculation, it follows a very similar
+pattern and is much simpler.  Remarkably, these inertial terms utilize some of
+the same variable combinations as the analytical calculations to express the
+inertial force, namely \(Y_{CM}\dot{\psi}^2\cos(\psi)\) and \(\ddot{\theta}\),
+with different coefficients to express the geometric variation between wings and
+small angle approximations \(\cos\theta\approx1\), \(\sin\theta\approx0\) for
+small out-of-plane deviation angles.  Since \(|\theta|<2^{\circ}\) in general,
+the small angle approximation is valid.
 
 \begin{table}[ht]
 \centering
@@ -346,12 +461,14 @@ Deviation 2 & \(\approx0\) & \it{None} \\
 \includegraphics[width=\textwidth]{figures/eq_comparison_inertial}
 \caption{\label{fig:eqcomparison_inertial} Inertial forces.}
 \end{subfigure}
-\caption{Comparison between terms of the analytical expressions (red) and data-driven models (blue).
-  \subref{fig:eqcomparison_lift} Primary translational aerodynamic lift proportional to the square
-  of the wing velocity. \subref{fig:eqcomparison_inertial} Inertial forces related to the pendulum
-  motion of the wing and deviation out of the stroke plane. The modeling process automatically
-  decoupled aerodynamic and inertial effects with no prior knowledge of the system. The total
-  measured force is shown for reference (black).}
+\caption{Comparison between terms of the analytical expressions (red) and
+  data-driven models (blue).  \subref{fig:eqcomparison_lift} Primary
+  translational aerodynamic lift proportional to the square of the wing
+  velocity. \subref{fig:eqcomparison_inertial} Inertial forces related to the
+  pendulum motion of the wing and deviation out of the stroke plane. The
+  modeling process automatically decoupled aerodynamic and inertial effects with
+  no prior knowledge of the system. The total measured force is shown for
+  reference (black).}
 \label{fig:eqcomparison}
 \end{figure}
 
@@ -360,16 +477,16 @@ Deviation 2 & \(\approx0\) & \it{None} \\
 % The Discussion should be succinct and must not contain subheadings.
 
 Table~\ref{table:eqcorrespondence} lists the corresponding terms between the
-basic analytical expressions and the data-driven model $EQ_4$.  While two of
-the inertial terms share the same combinations of variables, the data-driven
+basic analytical expressions and the data-driven model $EQ_4$.  While two of the
+inertial terms share the same combinations of variables, the data-driven
 expression for aerodynamic lift is very different from its analytical
 counterpart, and one portion of the pendulum motion is omitted altogether from
 the data-driven models.  The reasons for these differences lie in the nature of
 the symbolic regression algorithm, which is designed to return only the most
 parsimonious expressions capable of predicting the experimental data at a given
 level of accuracy.  Therefore, key physical effects may be represented
-numerically by terms that are symbolically different and often much simpler
-than their analytical counterparts.  This behavior of automatically separating
+numerically by terms that are symbolically different and often much simpler than
+their analytical counterparts.  This behavior of automatically separating
 distinct dynamical building blocks is one of the most powerful aspects of
 symbolic regression.  By sweeping the range of several kinematic and geometric
 parameters in the 58 sets of training data, any candidate models that
@@ -400,18 +517,18 @@ was observed that the data-driven models separated the measured forces into
 understandable physical effects.  A lift term was found that was numerically
 similar to the standard translational lift, and an inertial term was found that
 was numerically similar to the complete calculation of the pendulum and
-out-of-plane motions with some analytical terms in common.  Finally, by
-training data-driven models on experimental data from 58 individual
-wing-amplitude-speed combinations simultaneously, the symbolic-regression
-algorithm was able to discard models that did not generalize, while retaining
-those whose terms captured the underlying physical processes.
+out-of-plane motions with some analytical terms in common.  Finally, by training
+data-driven models on experimental data from 58 individual wing-amplitude-speed
+combinations simultaneously, the symbolic-regression algorithm was able to
+discard models that did not generalize, while retaining those whose terms
+captured the underlying physical processes.
 
 This application of a data-driven approach suggests that symbolic regression
 could be useful in phenomenological modeling and guiding the exploration of a
-wide variety of complex systems.  Its ability to automatically identify
-distinct physical effects that are consistent across all datasets makes it a
-powerful tool for identifying the structure of contributions from building
-blocks that make up the complete observed behavior of a dynamical system.
+wide variety of complex systems.  Its ability to automatically identify distinct
+physical effects that are consistent across all datasets makes it a powerful
+tool for identifying the structure of contributions from building blocks that
+make up the complete observed behavior of a dynamical system.
 
 \section*{Methods}
 
@@ -419,19 +536,18 @@ blocks that make up the complete observed behavior of a dynamical system.
 
 \subsection*{3D Printed wings and actuation mechanism}
 The experimental wings were fabricated using an Objet Connex500 3D printer with
-the rigid Objet FullCure720 material.
-Flapping flight with 3D printed wings was reported in \cite{richter2011untethered}. The
-wing design consisted of an interlocking root and tip, allowing the wing
-surface to pivot naturally during flapping from its neutral vertical position
-to an angle of attack of approximately 45\textdegree. The wing design is illustrated in
-Figure~\ref{fig:wing1} and the hinge design is
-illustrated in Figure~\ref{fig:root2}.  In total, eleven wings were used,
-ranging in wingspan from 40 mm to 120 mm and ranging in chord length from 40 mm
-to 80 mm. Flapping amplitudes were constrained by the geometry of the wing root
-design to be set at 72\textdegree, 81\textdegree, and 96\textdegree, and each
-wing was flapped at speeds ranging between 1 Hz and 3.5 Hz for each of these
-amplitude settings.  68 sets of data were recorded, representing Reynolds
-numbers between 2500 and 5000.
+the rigid Objet FullCure720 material.  Flapping flight with 3D printed wings was
+reported in \cite{richter2011untethered}. The wing design consisted of an
+interlocking root and tip, allowing the wing surface to pivot naturally during
+flapping from its neutral vertical position to an angle of attack of
+approximately 45\textdegree. The wing design is illustrated in
+Figure~\ref{fig:wing1} and the hinge design is illustrated in
+Figure~\ref{fig:root2}.  In total, eleven wings were used, ranging in wingspan
+from 40 mm to 120 mm and ranging in chord length from 40 mm to 80 mm. Flapping
+amplitudes were constrained by the geometry of the wing root design to be set at
+72\textdegree, 81\textdegree, and 96\textdegree, and each wing was flapped at
+speeds ranging between 1 Hz and 3.5 Hz for each of these amplitude settings.  68
+sets of data were recorded, representing Reynolds numbers between 2500 and 5000.
 
 % See https://tex.stackexchange.com/questions/286737/sub-figures-of-different-sizes-grid-layout
 \begin{figure}[h]%[!htb]
@@ -458,15 +574,15 @@ and a maximum measurement precision of 1\e{-9} N.  Mounted directly to the load
 cell was a wing-flapping mechanism, which consisted of a DC gear motor mated to
 a crank and connecting rod used to drive the experimental wings in a roughly
 sinusoidal flapping motion. This system is pictured in
-Figures~\ref{fig:apparatus2} and \ref{fig:apparatus3}.  The natural frequency
-of the load cell and wing driving mechanism was roughly 70 Hz, the natural
+Figures~\ref{fig:apparatus2} and \ref{fig:apparatus3}.  The natural frequency of
+the load cell and wing driving mechanism was roughly 70 Hz, the natural
 frequency for the first bending mode of the experimental wing was approximately
 26 Hz, and experimental wings were flapped at or below approximately 3.5 Hz.
 All experimental force measurements were filtered using a high-order zero-phase
 digital low-pass filter with a cutoff frequency of 7.5 times the flapping
-frequency, which preserved the primary inertial and aerodynamic forces acting
-on the wings while eliminating the faster vibrations of the wing structure and
-the load cell apparatus.
+frequency, which preserved the primary inertial and aerodynamic forces acting on
+the wings while eliminating the faster vibrations of the wing structure and the
+load cell apparatus.
 
 % % See https://tex.stackexchange.com/questions/286737/sub-figures-of-different-sizes-grid-layout
 \begin{figure}%[!htb]
@@ -481,9 +597,10 @@ the load cell apparatus.
     \includegraphics[height=5cm]{figures/apparatus3}
     \caption{\label{fig:apparatus3}}
 \end{subfigure}
-\caption{ \subref{fig:apparatus2} Front view of the flapping wing apparatus showing the wing mounted
-  on its driving mechanism attached to the force sensor. \subref{fig:apparatus3} Close-up view of
-  the 3D printed frame and crank mechanism used to drive the flapping motion of the wing.}
+\caption{\subref{fig:apparatus2} Front view of the flapping wing apparatus
+  showing the wing mounted on its driving mechanism attached to the force
+  sensor. \subref{fig:apparatus3} Close-up view of the 3D printed frame and
+  crank mechanism used to drive the flapping motion of the wing.}
 \end{figure}
 
 \subsection*{High-speed measurement of flapping kinematics}
@@ -491,22 +608,23 @@ A Casio EXILIM EX-FH20 color video camera was used to record each experiment at
 210 frames per second from a top-down perspective as well as a side view
 provided by a mirror mounted in the field of view.  The main beam of each wing
 was colored red to enable precise tracking of the stroke angle.  The top-down
-projected area of the wing was used to extract deflection angle, and tracking
-of the wing tip in the side-view was used to extract the angle of deviation out
-of the wing's stroke plane.  These three angles precisely define the
-configuration of the wing.  A schematic diagram of this apparatus is shown in
+projected area of the wing was used to extract deflection angle, and tracking of
+the wing tip in the side-view was used to extract the angle of deviation out of
+the wing's stroke plane.  These three angles precisely define the configuration
+of the wing.  A schematic diagram of this apparatus is shown in
 Figure~\ref{fig:apparatus}. A variety of image-processing techniques were used
 to extract the kinematics of the wing motion from high-speed video.  The
 red-colored main beam was identified with a color filter and a line was fitted
-using a Hough Transform to identify the stroke angle.  The wing deflection
-angle was computed by measuring the projected area of the wing in the image and
+using a Hough Transform to identify the stroke angle.  The wing deflection angle
+was computed by measuring the projected area of the wing in the image and
 compared with the known dimensions of the rectangular wing shape. The
 out-of-plane deviation angle of the wing was measured by tracking the leading
-and trailing edge corners of the wingtip in the side-view of the mirror. We refer the reader to our
-previous work for a more detailed description of our methods of extracting wing kinematics from
-high speed video and processing the measured data\cite{richter2012thesis}.
-% Figure~\ref{fig:kinematics} provides sample force data and measured wing kinematics from one
-% experiment.
+and trailing edge corners of the wingtip in the side-view of the mirror. We
+refer the reader to our previous work for a more detailed description of our
+methods of extracting wing kinematics from high speed video and processing the
+measured data\cite{richter2012thesis}.
+% Figure~\ref{fig:kinematics} provides sample force data and measured wing
+% kinematics from one experiment.
 
 
 % \begin{figure}[ht]
