@@ -148,21 +148,17 @@ commercially available load cell.
 Here we present a series of experiments measuring the kinematics and lift forces produced by eleven
 differently sized wings flapping at multiple speeds and amplitudes with Reynolds numbers between
 2500 and 5000. Several quasi-steady models from the literature are shown to exhibit strong agreement
-with the experimental data.  Then a set of data-driven equations were automatically generated from
-the data using the symbolic regression algorithm developed by Schmidt and Lipson \cite{schmidt2009distilling}.
-These data-driven models exhibit several remarkable properties.  First, they are at least as
-accurate as quasi-steady equations from the literature yet they are much simpler.  Second, they
-naturally separate distinct, understandable physical effects including terms corresponding to
-inertial forces and aerodynamic lift.  Finally, it is shown that models generated from data of a
-single experiment do not have the property of separating distinct physical effects, and they fail to
-accurately predict forces produced by a wing of a different geometry or flapping pattern.  It is
-only when models are trained on a large set of experiments including many different wings and
-flapping patterns that over-fit candidate equations are discarded and those that reflect the true
-underlying physics are maintained.  The models trained on a diverse set of data are shown to
-accurately predict the forces produced by wings of similar size and flapping kinematics that were
-not included in the training set. The ability of the symbolic regression process to infer distinct
-physical contributions to to the total lift force based on data alone suggests it may be a powerful
-tool in identifying the underlying structure of a wide variety of complex systems.
+with the experimental data. Then a set of data-driven equations were automatically generated from
+the data using the symbolic regression algorithm developed by Schmidt and Lipson
+\cite{schmidt2009distilling}. These data-driven models exhibit several desirable properties. First,
+they are at least as accurate as quasi-steady equations from the literature yet they are much
+simpler.  Second, they naturally separate distinct, understandable physical effects including terms
+corresponding to inertial forces and aerodynamic lift. Finally, they generalize well, providing
+accurate force predictions for similar experiments outside their training dataset, indicating that
+they correctly identify and assemble the most salient and predictive variables. These results
+indicate that data-driven symbolic regression may be a powerful scientific tool in discovering the
+underlying structure of many complex systems, as well as providing a practical tool in challenging
+engineering tasks like flapping wing design optimization.
 
 \section*{Results}
 
