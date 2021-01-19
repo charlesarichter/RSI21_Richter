@@ -169,6 +169,139 @@ the underlying structure of many complex systems, as well as providing a
 practical tool in challenging engineering tasks like flapping wing design
 optimization.
 
+\section*{Methods}
+
+% Topical subheadings are allowed. Authors must ensure that their Methods section includes adequate experimental and characterization data necessary for others in the field to reproduce their work.
+
+\subsection*{3D Printed wings and actuation mechanism}
+The experimental wings were fabricated using an Objet Connex500 3D printer with
+the rigid Objet FullCure720 material.  Flapping flight with 3D printed wings was
+reported in \cite{richter2011untethered}. The wing design consisted of an
+interlocking root and tip, allowing the wing surface to pivot naturally during
+flapping from its neutral vertical position to an angle of attack of
+approximately 45\textdegree. The wing design is illustrated in
+Figure~\ref{fig:wing1} and the hinge design is illustrated in
+Figure~\ref{fig:root2}.  In total, eleven wings were used, ranging in wingspan
+from 40 mm to 120 mm and ranging in chord length from 40 mm to 80 mm. Flapping
+amplitudes were constrained by the geometry of the wing root design to be set at
+72\textdegree, 81\textdegree, and 96\textdegree, and each wing was flapped at
+speeds ranging between 1 Hz and 3.5 Hz for each of these amplitude settings.  68
+sets of data were recorded, representing Reynolds numbers between 2500 and 5000.
+
+% See https://tex.stackexchange.com/questions/286737/sub-figures-of-different-sizes-grid-layout
+\begin{figure}[h]%[!htb]
+\centering
+\begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/wing1}
+    \caption{\label{fig:wing1}}
+\end{subfigure}
+\begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[trim=0 105 0 0, clip, width=0.95\textwidth]{figures/root2}
+    \caption{\label{fig:root2}}
+\end{subfigure}
+\caption{Detail of 3D printed wing \subref{fig:wing1} and wing root \subref{fig:root2} design
+  showing concentric-cylindrical design to allow passive pivoting of the wing surface.}
+\end{figure}
+
+\subsection*{Measurement apparatus}
+The apparatus used to measure the forces and kinematics of flapping wings was
+based on a FUTEK LSM250 parallelogram load cell with a USB interface for data
+logging.  This force measurement system was capable of a sampling rate of 1 kHz
+and a maximum measurement precision of 1\e{-9} N.  Mounted directly to the load
+cell was a wing-flapping mechanism, which consisted of a DC gear motor mated to
+a crank and connecting rod used to drive the experimental wings in a roughly
+sinusoidal flapping motion. This system is pictured in
+Figures~\ref{fig:apparatus2} and \ref{fig:apparatus3}.  The natural frequency of
+the load cell and wing driving mechanism was roughly 70 Hz, the natural
+frequency for the first bending mode of the experimental wing was approximately
+26 Hz, and experimental wings were flapped at or below approximately 3.5 Hz.
+All experimental force measurements were filtered using a high-order zero-phase
+digital low-pass filter with a cutoff frequency of 7.5 times the flapping
+frequency, which preserved the primary inertial and aerodynamic forces acting on
+the wings while eliminating the faster vibrations of the wing structure and the
+load cell apparatus.
+
+% % See https://tex.stackexchange.com/questions/286737/sub-figures-of-different-sizes-grid-layout
+\begin{figure}%[!htb]
+\centering
+\begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[height=5cm]{figures/apparatus2}
+    \caption{\label{fig:apparatus2}}
+\end{subfigure}
+\begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[height=5cm]{figures/apparatus3}
+    \caption{\label{fig:apparatus3}}
+\end{subfigure}
+\caption{\subref{fig:apparatus2} Front view of the flapping wing apparatus
+  showing the wing mounted on its driving mechanism attached to the force
+  sensor. \subref{fig:apparatus3} Close-up view of the 3D printed frame and
+  crank mechanism used to drive the flapping motion of the wing.}
+\end{figure}
+
+\subsection*{High-speed measurement of flapping kinematics}
+A Casio EXILIM EX-FH20 color video camera was used to record each experiment at
+210 frames per second from a top-down perspective as well as a side view
+provided by a mirror mounted in the field of view.  The main beam of each wing
+was colored red to enable precise tracking of the stroke angle.  The top-down
+projected area of the wing was used to extract deflection angle, and tracking of
+the wing tip in the side-view was used to extract the angle of deviation out of
+the wing's stroke plane.  These three angles precisely define the configuration
+of the wing.  A schematic diagram of this apparatus is shown in
+Figure~\ref{fig:apparatus}. A variety of image-processing techniques were used
+to extract the kinematics of the wing motion from high-speed video.  The
+red-colored main beam was identified with a color filter and a line was fitted
+using a Hough Transform to identify the stroke angle.  The wing deflection angle
+was computed by measuring the projected area of the wing in the image and
+compared with the known dimensions of the rectangular wing shape. The
+out-of-plane deviation angle of the wing was measured by tracking the leading
+and trailing edge corners of the wingtip in the side-view of the mirror. We
+refer the reader to our previous work for a more detailed description of our
+methods of extracting wing kinematics from high speed video and processing the
+measured data\cite{richter2012thesis}.
+% Figure~\ref{fig:kinematics} provides sample force data and measured wing
+% kinematics from one experiment.
+
+
+% \begin{figure}[ht]
+% \centering
+% \includegraphics[width=\linewidth]{figures/stream}
+% \caption{Legend (350 words max). Example legend text.}
+% \label{fig:stream}
+% \end{figure}
+
+% \begin{figure}
+% \centering
+% \begin{subfigure}[b]{.45\linewidth}
+% \includegraphics[width=\linewidth]{figures/regforce1}
+% \caption{Measured vertical force.}
+% \label{fig:regforce}
+% \end{subfigure}
+% \begin{subfigure}[b]{.45\linewidth}
+% \includegraphics[width=\linewidth]{figures/regstroke1}
+% \caption{Wing stroke angle.}
+% \label{fig:regstroke}
+% \end{subfigure}
+
+% \begin{subfigure}[b]{.45\linewidth}
+% \includegraphics[width=\linewidth]{figures/regdef1}
+% \caption{Wing deflection angle.}
+% \label{fig:regdef}
+% \end{subfigure}
+% \begin{subfigure}[b]{.45\linewidth}
+% \includegraphics[width=\linewidth]{figures/regdev1}
+% \caption{Wing deviation angle.}
+% \label{fig:regdev}
+% \end{subfigure}
+% \caption{Measured \subref{fig:regforce} vertical force, \subref{fig:regstroke} wing stroke angle,
+%   \subref{fig:regdef} deflection angle, \subref{fig:regdev} and deviation angle from one experiment,
+%   registered and averaged over 18 flapping periods.}
+% \label{fig:kinematics}
+% \end{figure}
+
 \section*{Results}
 
 % Up to three levels of \textbf{subheading} are permitted. Subheadings should not be numbered.
@@ -529,139 +662,6 @@ wide variety of complex systems.  Its ability to automatically identify distinct
 physical effects that are consistent across all datasets makes it a powerful
 tool for identifying the structure of contributions from building blocks that
 make up the complete observed behavior of a dynamical system.
-
-\section*{Methods}
-
-% Topical subheadings are allowed. Authors must ensure that their Methods section includes adequate experimental and characterization data necessary for others in the field to reproduce their work.
-
-\subsection*{3D Printed wings and actuation mechanism}
-The experimental wings were fabricated using an Objet Connex500 3D printer with
-the rigid Objet FullCure720 material.  Flapping flight with 3D printed wings was
-reported in \cite{richter2011untethered}. The wing design consisted of an
-interlocking root and tip, allowing the wing surface to pivot naturally during
-flapping from its neutral vertical position to an angle of attack of
-approximately 45\textdegree. The wing design is illustrated in
-Figure~\ref{fig:wing1} and the hinge design is illustrated in
-Figure~\ref{fig:root2}.  In total, eleven wings were used, ranging in wingspan
-from 40 mm to 120 mm and ranging in chord length from 40 mm to 80 mm. Flapping
-amplitudes were constrained by the geometry of the wing root design to be set at
-72\textdegree, 81\textdegree, and 96\textdegree, and each wing was flapped at
-speeds ranging between 1 Hz and 3.5 Hz for each of these amplitude settings.  68
-sets of data were recorded, representing Reynolds numbers between 2500 and 5000.
-
-% See https://tex.stackexchange.com/questions/286737/sub-figures-of-different-sizes-grid-layout
-\begin{figure}[h]%[!htb]
-\centering
-\begin{subfigure}[t]{0.45\textwidth}
-    \centering
-    \includegraphics[width=0.95\textwidth]{figures/wing1}
-    \caption{\label{fig:wing1}}
-\end{subfigure}
-\begin{subfigure}[t]{0.45\textwidth}
-    \centering
-    \includegraphics[trim=0 105 0 0, clip, width=0.95\textwidth]{figures/root2}
-    \caption{\label{fig:root2}}
-\end{subfigure}
-\caption{Detail of 3D printed wing \subref{fig:wing1} and wing root \subref{fig:root2} design
-  showing concentric-cylindrical design to allow passive pivoting of the wing surface.}
-\end{figure}
-
-\subsection*{Measurement apparatus}
-The apparatus used to measure the forces and kinematics of flapping wings was
-based on a FUTEK LSM250 parallelogram load cell with a USB interface for data
-logging.  This force measurement system was capable of a sampling rate of 1 kHz
-and a maximum measurement precision of 1\e{-9} N.  Mounted directly to the load
-cell was a wing-flapping mechanism, which consisted of a DC gear motor mated to
-a crank and connecting rod used to drive the experimental wings in a roughly
-sinusoidal flapping motion. This system is pictured in
-Figures~\ref{fig:apparatus2} and \ref{fig:apparatus3}.  The natural frequency of
-the load cell and wing driving mechanism was roughly 70 Hz, the natural
-frequency for the first bending mode of the experimental wing was approximately
-26 Hz, and experimental wings were flapped at or below approximately 3.5 Hz.
-All experimental force measurements were filtered using a high-order zero-phase
-digital low-pass filter with a cutoff frequency of 7.5 times the flapping
-frequency, which preserved the primary inertial and aerodynamic forces acting on
-the wings while eliminating the faster vibrations of the wing structure and the
-load cell apparatus.
-
-% % See https://tex.stackexchange.com/questions/286737/sub-figures-of-different-sizes-grid-layout
-\begin{figure}%[!htb]
-\centering
-\begin{subfigure}[t]{0.45\textwidth}
-    \centering
-    \includegraphics[height=5cm]{figures/apparatus2}
-    \caption{\label{fig:apparatus2}}
-\end{subfigure}
-\begin{subfigure}[t]{0.45\textwidth}
-    \centering
-    \includegraphics[height=5cm]{figures/apparatus3}
-    \caption{\label{fig:apparatus3}}
-\end{subfigure}
-\caption{\subref{fig:apparatus2} Front view of the flapping wing apparatus
-  showing the wing mounted on its driving mechanism attached to the force
-  sensor. \subref{fig:apparatus3} Close-up view of the 3D printed frame and
-  crank mechanism used to drive the flapping motion of the wing.}
-\end{figure}
-
-\subsection*{High-speed measurement of flapping kinematics}
-A Casio EXILIM EX-FH20 color video camera was used to record each experiment at
-210 frames per second from a top-down perspective as well as a side view
-provided by a mirror mounted in the field of view.  The main beam of each wing
-was colored red to enable precise tracking of the stroke angle.  The top-down
-projected area of the wing was used to extract deflection angle, and tracking of
-the wing tip in the side-view was used to extract the angle of deviation out of
-the wing's stroke plane.  These three angles precisely define the configuration
-of the wing.  A schematic diagram of this apparatus is shown in
-Figure~\ref{fig:apparatus}. A variety of image-processing techniques were used
-to extract the kinematics of the wing motion from high-speed video.  The
-red-colored main beam was identified with a color filter and a line was fitted
-using a Hough Transform to identify the stroke angle.  The wing deflection angle
-was computed by measuring the projected area of the wing in the image and
-compared with the known dimensions of the rectangular wing shape. The
-out-of-plane deviation angle of the wing was measured by tracking the leading
-and trailing edge corners of the wingtip in the side-view of the mirror. We
-refer the reader to our previous work for a more detailed description of our
-methods of extracting wing kinematics from high speed video and processing the
-measured data\cite{richter2012thesis}.
-% Figure~\ref{fig:kinematics} provides sample force data and measured wing
-% kinematics from one experiment.
-
-
-% \begin{figure}[ht]
-% \centering
-% \includegraphics[width=\linewidth]{figures/stream}
-% \caption{Legend (350 words max). Example legend text.}
-% \label{fig:stream}
-% \end{figure}
-
-% \begin{figure}
-% \centering
-% \begin{subfigure}[b]{.45\linewidth}
-% \includegraphics[width=\linewidth]{figures/regforce1}
-% \caption{Measured vertical force.}
-% \label{fig:regforce}
-% \end{subfigure}
-% \begin{subfigure}[b]{.45\linewidth}
-% \includegraphics[width=\linewidth]{figures/regstroke1}
-% \caption{Wing stroke angle.}
-% \label{fig:regstroke}
-% \end{subfigure}
-
-% \begin{subfigure}[b]{.45\linewidth}
-% \includegraphics[width=\linewidth]{figures/regdef1}
-% \caption{Wing deflection angle.}
-% \label{fig:regdef}
-% \end{subfigure}
-% \begin{subfigure}[b]{.45\linewidth}
-% \includegraphics[width=\linewidth]{figures/regdev1}
-% \caption{Wing deviation angle.}
-% \label{fig:regdev}
-% \end{subfigure}
-% \caption{Measured \subref{fig:regforce} vertical force, \subref{fig:regstroke} wing stroke angle,
-%   \subref{fig:regdef} deflection angle, \subref{fig:regdev} and deviation angle from one experiment,
-%   registered and averaged over 18 flapping periods.}
-% \label{fig:kinematics}
-% \end{figure}
 
 \bibliographystyle{abbrv}
 \bibliography{main}
