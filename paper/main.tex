@@ -352,6 +352,7 @@ measured data\cite{richter2012thesis}.
 %  
 % Topical subheadings are allowed.
 
+% TODO: Reword this section to not focus on the number 58 right off the bat.
 \subsection*{Data-driven models}
 The strategy for modeling lift forces symbolically was to train candidate
 equations on 58 of the 68 total experiments simultaneously, with the remaining
@@ -363,15 +364,22 @@ experiment.  The data consisted of instantaneous measured vertical force along
 with the measured value of each kinematic variable, the first and second
 derivatives of those variables, and the geometric parameters necessary to
 describe the wing's shape and distribution of area, totaling 31 separate
-variables.
-
-By training on 58 experiments simultaneously, the symbolic regression algorithm
-generated equations that fit all of the data, using the some, but not all, of
-the provided variables to account for variations in kinematics and wing geometry
-between experiments.   Table~\ref{table:eqmodels} lists five of the leading
-candidate models, which were trained using mean absolute error (MAE) as the
-fitness metric during the search. The search was conducted for approximately 24
+variables. By training on 58 experiments simultaneously, the symbolic regression
+algorithm generated equations that fit all of the data, using the some, but not
+all, of the provided variables to account for variations in kinematics and wing
+geometry between experiments. The search was conducted for approximately 24
 hours, using 60 cores on a computing cluster.
+
+Table~\ref{table:eqmodels} lists the performance of five of the leading
+candidate models, along with five analytical models for comparison. We measure
+performance as the mean absolute error (MAE) between predicted and measured
+vertical force in the 10 test set experiments withheld from training. Our
+primary results, provided in the column labeled ``MAE Not Fitted'', use
+coefficient values for all models that were optimized on the training set.
+However, since the accuracy of the analytical models may depend on coefficients
+that vary with wing shape, flapping speed, or other factors, we also provide
+secondary results in the column labeled ``MAE Fitted'', which use coefficient
+values that were fitted to the test set experiments.
 
 % TODO: Make sure to define all variables used in these tables.
 % TODO: Figure out why we're calling it "U-squared".
