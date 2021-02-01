@@ -214,9 +214,9 @@ text(sz_plti,mean_nofit_mae_plti,'   U^2 Planar 2','rotation',rotangle,'fontsize
 plot(sz_rw_liftonly,mean_nofit_mae_rw_liftonly,'c.','Markersize',largesize);
 text(sz_rw_liftonly,mean_nofit_mae_rw_liftonly,'   U^2 Total','rotation',rotangle,'fontsize',fsize);
 plot(sz_rw_liftam,mean_nofit_mae_rw_liftam,'r.','Markersize',largesize);
-text(sz_rw_liftam,mean_nofit_mae_rw_liftam,'   Whitney-Wood','rotation',rotangle,'fontsize',fsize);
+text(sz_rw_liftam,mean_nofit_mae_rw_liftam,'   WW','rotation',rotangle,'fontsize',fsize);
 plot(sz_jw,mean_nofit_mae_jw,'m.','Markersize',largesize);
-text(sz_jw,mean_nofit_mae_jw,'   Pesavento-Wang','rotation',rotangle,'fontsize',fsize);
+text(sz_jw,mean_nofit_mae_jw,'   PW','rotation',rotangle,'fontsize',fsize);
 plot(sz_eq1,mean_nofit_mae_eq1,'k.','Markersize',smallsize);
 plot(sz_eq2,mean_nofit_mae_eq2,'k.','Markersize',smallsize);
 plot(sz_eq3,mean_nofit_mae_eq3,'k.','Markersize',smallsize);
@@ -227,7 +227,7 @@ ylabel('Mean Absolute Error (10^-^3 N)','fontsize',fsize)
 xlabel('Equation Size (number of operators)','fontsize',fsize)
 
 xmin = 0;
-xmax = 180;
+xmax = 150;
 ymin = 0;
 ymax = 1.9e-3;
 xlim([xmin xmax])
@@ -337,9 +337,9 @@ text(sz_plti,mean_fit_mae_plti,'   U^2 Planar 2','rotation',rotangle,'fontsize',
 plot(sz_rw_liftonly,mean_fit_mae_rw_liftonly,'c.','Markersize',largesize);
 text(sz_rw_liftonly,mean_fit_mae_rw_liftonly,'   U^2 Total','rotation',rotangle,'fontsize',fsize);
 plot(sz_rw_liftam,mean_fit_mae_rw_liftam,'r.','Markersize',largesize);
-text(sz_rw_liftam,mean_fit_mae_rw_liftam,'   Whitney-Wood','rotation',rotangle,'fontsize',fsize);
+text(sz_rw_liftam,mean_fit_mae_rw_liftam,'   WW','rotation',rotangle,'fontsize',fsize);
 plot(sz_jw,mean_fit_mae_jw,'m.','Markersize',largesize);
-text(sz_jw,mean_fit_mae_jw,'   Pesavento-Wang','rotation',rotangle,'fontsize',fsize);
+text(sz_jw,mean_fit_mae_jw,'   PW','rotation',rotangle,'fontsize',fsize);
 plot(sz_eq1,mean_fit_mae_eq1,'k.','Markersize',smallsize);
 plot(sz_eq2,mean_fit_mae_eq2,'k.','Markersize',smallsize);
 plot(sz_eq3,mean_fit_mae_eq3,'k.','Markersize',smallsize);
@@ -350,7 +350,7 @@ ylabel('Mean Absolute Error (10^-^3 N)','fontsize',fsize)
 xlabel('Equation Size (number of operators)','fontsize',fsize)
 
 xmin = 0;
-xmax = 180;
+xmax = 150;
 ymin = 0;
 ymax = 1.9e-3;
 xlim([xmin xmax])

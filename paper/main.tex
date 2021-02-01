@@ -373,6 +373,8 @@ candidate models, which were trained using mean absolute error (MAE) as the
 fitness metric during the search. The search was conducted for approximately 24
 hours, using 60 cores on a computing cluster.
 
+% TODO: Make sure to define all variables used in these tables.
+% TODO: Figure out why we're calling it "U-squared".
 \begin{table}[ht]
 \centering
 \begin{tabular}{|l|l|r|r|r|}
@@ -388,8 +390,8 @@ hours, using 60 cores on a computing cluster.
 \(U^2\) Planar 1 & \(L_{planar},  F_{inertial\:(pendulum\:only)}\) & 32 & 1.46\e{-3}\\
 \(U^2\) Planar 2 & \(L_{planar}, F_{inertial}\) & 46 & 1.28\e{-3}\\
 \(U^2\) Total & \(L_{trans}, F_{inertial}\) & 96 & 1.28\e{-3}\\
-Whitney-Wood & \(L_{trans}, AM_{trans}, AM_{rot}\) & 121 & 1.21\e{-3}\\
-Pesavento-Wang & \(L_{trans}, L_{rot}, AM_{trans}, AM_{trans-rot}\) & 130 & 1.20\e{-3}\\
+WW~\cite{whitney2010aeromechanics} & \(L_{trans}, AM_{trans}, AM_{rot}\) & 121 & 1.21\e{-3}\\
+PW~\cite{pesavento2004falling} & \(L_{trans}, L_{rot}, AM_{trans}, AM_{trans-rot}\) & 130 & 1.20\e{-3}\\
 \hline
 \end{tabular}
 \caption{\label{table:eqmodels}Comparison of data-driven models and analytical
