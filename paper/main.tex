@@ -375,12 +375,14 @@ hours, using 60 cores on a computing cluster.
 
 % TODO: Make sure to define all variables used in these tables.
 % TODO: Figure out why we're calling it "U-squared".
+% TODO: Decide on better terms than "fitted" and "not fitted".
 \begin{table}[ht]
 \small
 \centering
 \begin{tabular}{|l|l|r|r|r|}
 \hline
-  {\bf Model} & {\bf Terms/Formula} & {\bf Size} & {\bf Fitted MAE (N)} & {\bf MAE (N)}\\
+  {\bf Model} & {\bf Terms/Formula} & {\bf Size} & \begin{tabular}{@{}c@{}}{\bf MAE (N)} \\
+    Fitted\end{tabular} & \begin{tabular}{@{}c@{}}{\bf MAE (N)} \\ Not Fitted\end{tabular}\\
 \hline
 \(EQ _5\) & \(C_1RY_{CM}\dot{\psi}^2\ + C_2RX_{CM}\dot{\phi}\psi - C_3R\ddot{\theta}\) & 12 & 8.79\e{-4} & 1.19\e{-3}\\
 \(EQ _4\) & \(C_1RY_{CM}\dot{\psi}^2\cos\psi + C_2RX_{CM}\dot{\phi}\psi - C_3R\ddot{\theta}\) & 14 & 8.66\e{-4} & 1.18\e{-3}\\
