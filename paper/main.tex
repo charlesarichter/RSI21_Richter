@@ -187,8 +187,8 @@ the hinges and the flexibility of the wing structure itself. These three
 variables, and their derivatives, are some of the inputs required to model lift
 forces. The other inputs are the geometric and inertial properties of the wings,
 obtained from CAD designs and physical measurement. Next, we describe the wing
-design and fabrication, the force measurement apparatus, and the method of
-extracting wing kinematics from high-speed video.
+design and fabrication, the force measurement apparatus, and the methods of
+extracting and processing wing kinematics data from high-speed video.
 
 % Topical subheadings are allowed. Authors must ensure that their Methods section includes adequate experimental and characterization data necessary for others in the field to reproduce their work.
 
@@ -289,6 +289,17 @@ with zero deflection and deviation throughout the wing stroke. We refer the
 reader to our previous work for further details and illustrations of our methods
 for extracting wing kinematics from high speed video and processing the measured
 data~\cite{richter2012thesis}.
+
+\subsection*{Data Smoothing and Registration}
+Stroke, deflection and deviation measurements were smoothed with a
+Savitzky–Golay filter, providing not only a reduction in noise in the signals
+themselves, but also smooth first and second derivatives of these signals. These
+kinematic variables were temporally aligned and resampled to the 1 kHz frequency
+of the force measurement. Finally, for each wing at each flapping frequency and
+amplitude, the data for 10-20 wing strokes were registered and averaged together
+to create a composite sample representing the force and kinematics of a single
+complete wing stroke of the given wing, frequency and amplitude. These composite
+samples were then used for data-driven modeling and analysis.
 
 % TODO: Mention polynomial fitting then differentiation to get derivatives.
 
