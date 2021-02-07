@@ -49,21 +49,21 @@ York, United States}
 
 \begin{abstract}
 We explore a data-driven approach to symbolically modeling the lift produced by
-the flapping wing of a micro air vehicle.  The aerodynamics of flapping flight
-pose a modeling challenge due to complex effects related to vortex dynamics,
-wake interaction, aeroelasticity and three-dimensional flow, yet simple and
-accurate equations are useful for engineering purposes and optimization of wing
-design.  Experiments were conducted to measure the flapping kinematics and
-instantaneous lift forces produced by eleven different 3D printed wing
-geometries at three different flapping amplitudes and multiple speeds, totaling
-68 distinct sets of data.  58 of these data sets were used to train data-driven
-models using a symbolic regression algorithm, while the remaining sets were
-reserved for model testing.  Data-driven models were found to be more accurate
-and much simpler than existing quasi-steady analytical models consistent with
-aerodynamic theory.  Furthermore, data-driven models were found to separate
-distinct physical effects into inertial and aerodynamic components bearing
-remarkable resemblance to their analytical counterparts. This result suggests
-that a data-driven approach could be a powerful tool in separating and
+flapping wings at the scale of a micro air vehicle.  The aerodynamics of
+flapping flight pose a modeling challenge due to complex effects related to
+vortex dynamics, wake interaction, aeroelasticity and three-dimensional flow,
+yet simple and accurate equations are useful for engineering purposes and
+optimization of wing design.  Experiments were conducted to measure the flapping
+kinematics and instantaneous lift forces produced by eleven different 3D printed
+wing geometries at three different flapping amplitudes and multiple speeds,
+totaling 68 distinct sets of data.  58 of these data sets were used to train
+data-driven models using a symbolic regression algorithm, while the remaining
+sets were reserved for model testing.  Data-driven models were found to be more
+accurate and much simpler than existing quasi-steady analytical models
+consistent with aerodynamic theory.  Furthermore, data-driven models were found
+to separate distinct physical effects into inertial and aerodynamic components
+bearing remarkable resemblance to their analytical counterparts.  This result
+suggests that a data-driven approach could be a powerful tool in separating and
 identifying the structural building blocks of a wide variety of unknown
 dynamical systems.
 \end{abstract}
@@ -104,16 +104,16 @@ detailed modeling of the fluid flow.  These equations are phenomenological in
 nature and constitute an assembly of terms that are consistent with aerodynamic
 theory that can be used to represent lift, drag and other forces, as functions
 of a wing's kinematic variables such as velocity and angle of attack.  Both
-methods have shown qualitative and quantitative agreement with experimental
-measurements \cite{wang2004unsteady}.
+methods have shown qualitative and quantitative agreement with experiments
+\cite{wang2004unsteady}.
 
 % \subsection{Automated modeling} 
 
 Quasi-steady representations of lift are particularly well suited to the process
 of symbolic regression, which harnesses computational power to conduct an
-automated search over the space of all kinematic variables and geometric
-parameters to find equations that most accurately predict the forces on a wing.
-Symbolic regression algorithms are based on evolutionary computation
+automated search over the space of relationships between kinematic variables and
+geometric parameters to find equations that most accurately predict the forces
+on a wing.  Symbolic regression algorithms are based on evolutionary computation
 \cite{koza1992genetic,forrest1993genetic} and have been used to model complex
 systems defined by explicit
 \cite{duffy2002using,fillon2007symbolic,bautu2005symbolic}, implicit
@@ -172,23 +172,23 @@ optimization.
 
 \section*{Methods}
 Our experimental apparatus consisted of a wing and actuator mounted to a
-vertical force sensor, with a high-speed video camera recording the motion of
-the wing from a top-down view and (using a mirror) also from a side-view. The
-top-down and side views were used to detect and track the orientation of the
-wing.  Figure~\ref{fig:apparatus} provides a diagram of the apparatus as well as
-illustrations of the three primary variables describing the wing orientation:
-Stroke ($\phi$), deflection ($\psi$) and deviation ($\theta$). The stroke motion
-is enabled by a hinge joint and is the only actuated degree of freedom in the
-system. The deflection of the wing is enabled by a hinge in the root of the
-wing, and is a passive motion resulting from both inertial and aerodynamic
-effects. Deviation refers to the passive vertical motion of the wing out of its
-horizontal flapping plane, and is enabled only by the tolerances of the hinges
-and the flexibility of the wing structure itself. These three variables, and
-their derivatives, are some of the inputs required to model lift forces. The
-other inputs are the geometric and inertial properties of the wings, obtained
-from CAD designs and physical measurement. Next, we describe the wing design and
-fabrication, the force measurement apparatus, and the method of extracting wing
-kinematics from high-speed video.
+vertical force sensor, with a high-speed color video camera recording the motion
+of the wing from a top-down view, and also from a side view using a mirror. The
+top-down and side views were used to detect and track the position and
+orientation of the wing.  Figure~\ref{fig:apparatus} provides a diagram of the
+apparatus as well as illustrations of the three primary variables describing the
+wing orientation: Stroke ($\phi$), deflection ($\psi$) and deviation ($\theta$).
+The stroke motion is enabled by a hinge joint and is the only actuated degree of
+freedom in the system. The deflection of the wing is enabled by a hinge in the
+root of the wing, and is a passive motion resulting from both inertial and
+aerodynamic effects. Deviation refers to the passive vertical motion of the wing
+out of its horizontal flapping plane, and is enabled only by the tolerances of
+the hinges and the flexibility of the wing structure itself. These three
+variables, and their derivatives, are some of the inputs required to model lift
+forces. The other inputs are the geometric and inertial properties of the wings,
+obtained from CAD designs and physical measurement. Next, we describe the wing
+design and fabrication, the force measurement apparatus, and the method of
+extracting wing kinematics from high-speed video.
 
 % Topical subheadings are allowed. Authors must ensure that their Methods section includes adequate experimental and characterization data necessary for others in the field to reproduce their work.
 
@@ -196,18 +196,19 @@ kinematics from high-speed video.
 \centering
 \includegraphics[trim=0 15 0 5, clip, width=0.5\textwidth]{figures/apparatus}
 \caption{Schematic diagram of the experimental apparatus
-  showing three kinematic variables of the wing motion: stroke ($\phi$),
+  showing three kinematic variables of the wing motion: Stroke ($\phi$),
   deflection ($\psi$) and deviation ($\theta$).\label{fig:apparatus}}
 \end{figure}
 
 
 \subsection*{3D Printed wings and actuation mechanism}
 The experimental wings were fabricated using an Objet Connex500 3D printer with
-the rigid Objet FullCure720 material.  Flapping flight with 3D printed wings was
-reported in \cite{richter2011untethered}. The wing design consisted of an
-interlocking root and tip, allowing the wing surface to pivot naturally during
-flapping from its neutral vertical position to an angle of attack of
-approximately 45\textdegree. The wing design is illustrated in
+the rigid Objet FullCure720 material. In prior work, we demonstrated flapping
+flight of a micro air vehicle with wings made using this material
+\cite{richter2011untethered}. The wing design consisted of an interlocking
+hinged root and tip, allowing the wing surface to pivot naturally during
+flapping from its neutral vertical position to a deflection angle of
+approximately 45\textdegree.  The wing design is illustrated in
 Figure~\ref{fig:wing1} and the hinge design is illustrated in
 Figure~\ref{fig:root2}.  In total, eleven wings were used, ranging in wingspan
 from 40 mm to 120 mm and ranging in chord length from 40 mm to 80 mm. Flapping
@@ -234,22 +235,20 @@ sets of data were recorded, representing Reynolds numbers between 2500 and 5000.
 \end{figure}
 
 \subsection*{Measurement apparatus}
-The apparatus used to measure the forces and kinematics of flapping wings was
-based on a FUTEK LSM250 parallelogram load cell with a USB interface for data
-logging.  This force measurement system was capable of a sampling rate of 1 kHz
-and a maximum measurement precision of 1\e{-9} N.  Mounted directly to the load
-cell was a wing-flapping mechanism, which consisted of a DC gear motor mated to
-a crank and connecting rod used to drive the experimental wings in a roughly
-sinusoidal flapping motion. This system is pictured in
-Figures~\ref{fig:apparatus2} and \ref{fig:apparatus3}.  The natural frequency of
-the load cell and wing driving mechanism was roughly 70 Hz, the natural
-frequency for the first bending mode of the experimental wing was approximately
-26 Hz, and experimental wings were flapped at or below approximately 3.5 Hz.
-All experimental force measurements were filtered using a high-order zero-phase
-digital low-pass filter with a cutoff frequency of 7.5 times the flapping
-frequency, which preserved the primary inertial and aerodynamic forces acting on
-the wings while eliminating the faster vibrations of the wing structure and the
-load cell apparatus. 
+The force measurement apparatus was based on a FUTEK LSM250 parallelogram load
+cell, capable of a sampling rate of 1 kHz and a precision of 1\e{-9} N.  Mounted
+directly to the load cell was a wing-flapping mechanism, which consisted of a DC
+gear motor powering a crank and connecting rod used to drive the experimental
+wings in a roughly sinusoidal flapping motion. This system is pictured in
+Figures~\ref{fig:apparatus2} and \ref{fig:apparatus3}.  The natural vibration
+frequency of the load cell and wing driving mechanism was roughly 70 Hz, the
+natural vibration frequency for the first bending mode of the experimental wing
+was approximately 26 Hz, and experimental wings were flapped at or below
+approximately 3.5 Hz.  All experimental force measurements were filtered using a
+high-order zero-phase digital low-pass filter with a cutoff frequency of 7.5
+times the flapping frequency, which preserved the primary inertial and
+aerodynamic forces acting on the wings while eliminating the faster vibrations
+of the wing structure and the load cell apparatus.
 
 % TODO: Mention empirically measuring impulse response.
 
@@ -275,23 +274,21 @@ load cell apparatus.
 \subsection*{High-speed measurement of flapping kinematics}
 A Casio EXILIM EX-FH20 color video camera was used to record each experiment at
 210 frames per second from a top-down perspective as well as a side view
-provided by a mirror mounted in the field of view.  The main beam of each wing
-was colored red to enable precise tracking of the stroke angle.  The top-down
-projected area of the wing was used to extract deflection angle, and tracking of
-the wing tip in the side-view was used to extract the angle of deviation out of
-the wing's stroke plane.  These three angles precisely define the configuration
-of the wing.  A schematic diagram of this apparatus is shown in
-Figure~\ref{fig:apparatus}. A variety of image-processing techniques were used
-to extract the kinematics of the wing motion from high-speed video.  The
-red-colored main beam was identified with a color filter and a line was fitted
-using a Hough Transform to identify the stroke angle.  The wing deflection angle
-was computed by measuring the projected area of the wing in the image and
-compared with the known dimensions of the rectangular wing shape. The
-out-of-plane deviation angle of the wing was measured by tracking the leading
-and trailing edge corners of the wingtip in the side-view of the mirror. We
-refer the reader to our previous work for a more detailed description of our
-methods of extracting wing kinematics from high speed video and processing the
-measured data\cite{richter2012thesis}.
+provided by a mirror mounted in the field of view. Both the top-down and side
+views featured matte black backdrops to facilitate easy identification of the
+wing in video frames. A variety of image-processing techniques were used to
+extract the kinematics of the wing motion from each video frame. The main beam
+of each wing was colored red and identified with a color filter in the top-down
+view. A line was then fitted using the Hough Transform to identify the stroke
+angle. The wing deflection angle was computed by measuring the projected area of
+the wing in the top-down view, calibrated using the known dimensions of the
+rectangular wing shape. The out-of-plane deviation angle of the wing was
+measured by tracking the leading and trailing edge corners of the wingtip in the
+side view and comparing their positions to the nominal position of the wingtip
+with zero deflection and deviation throughout the wing stroke. We refer the
+reader to our previous work for further details and illustrations of our methods
+for extracting wing kinematics from high speed video and processing the measured
+data~\cite{richter2012thesis}.
 
 % TODO: Mention polynomial fitting then differentiation to get derivatives.
 
