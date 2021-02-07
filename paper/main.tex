@@ -421,11 +421,12 @@ not simply due to the choice or optimization of coefficient values.
 \(EQ _2\) & \(C_1RY_{CM}\dot{\psi}^2\cos\psi + C_2RX_{CM}\dot{\phi}\psi - C_3R\dot{\phi}\dot{\psi}\psi - C_4R\ddot{\theta}\) & 19 & 8.15\e{-4} & 1.14\e{-3}\\
 \(EQ _1\) & \(C_1RY_{CM}\dot{\psi}^2\cos\psi + C_2RX_{CM}\dot{\phi}\psi - C_3R\ddot{\theta}\dot{\phi}\psi - C_4R\dot{\phi}\dot{\psi}\psi - C_5R\ddot{\theta}\) & 24 & 7.73\e{-4} & 1.12\e{-3}\\
 \hline
-\(V^2\) Planar 1 & \(L_{planar},  F_{inertial\:(pendulum\:only)}\) & 32 & 1.38\e{-3} & 1.47\e{-3}\\
-\(V^2\) Planar 2 & \(L_{planar}, F_{inertial}\) & 46 & 1.18\e{-3} & 1.29\e{-3}\\
-\(V^2\) Total & \(L_{trans}, F_{inertial}\) & 96 & 1.18\e{-3} & 1.29\e{-3}\\
-WW~\cite{whitney2010aeromechanics} & \(L_{trans}, AM_{trans}, AM_{rot}\) & 121 & 1.02\e{-3} & 1.23\e{-3}\\
-PW~\cite{pesavento2004falling} & \(L_{trans}, L_{rot}, AM_{trans}, AM_{trans-rot}\) & 130 & 1.01\e{-3} & 1.20\e{-3}\\
+\(V^2\) Planar 1 & \(L_{planar},  F_{pendulum}\) & 32 & 1.38\e{-3} & 1.47\e{-3}\\
+\(V^2\) Planar 2 & \(L_{planar}, F_{pendulum}, F_{deviation}\) & 46 & 1.18\e{-3} & 1.29\e{-3}\\
+\(V^2\) Total & \(L_{trans}, F_{pendulum}, F_{deviation}\) & 96 & 1.18\e{-3} & 1.29\e{-3}\\
+WW~\cite{whitney2010aeromechanics} & \(L_{trans}, AM_{trans}, AM_{rot}, F_{pendulum}, F_{deviation}\) & 121 & 1.02\e{-3} & 1.23\e{-3}\\
+PW~\cite{pesavento2004falling} & \(L_{trans}, L_{rot}, AM_{trans},
+    AM_{trans-rot}, F_{pendulum}, F_{deviation}\) & 130 & 1.01\e{-3} & 1.20\e{-3}\\
 \hline
 \end{tabular}
 \caption{\label{table:eqmodels}Comparison of data-driven models and analytical
@@ -480,26 +481,30 @@ where \(V\) is the wing velocity, \(\rho\) is the fluid density, \(A\) is the ar
 \begin{equation}
 C_L = C_{Lmax}\sin(2\alpha).
 \end{equation}
+In Table~\ref{table:eqmodels} and Figure~\ref{fig:pareto_mae}, we present
+results for three models whose only aerodynamic component is translational lift
+proportional to wing velocity, which we term $V^2$ Planar 1, $V^2$ Planar 2, and
+$V^2$ Total.
 
 % TODO: Understand and verify (numerically) how we get an effective v^2 via
 % integration along the span, and document that in the code.
 
-Other aerodynamic contributors include rotational lift proportional to the
+Additional aerodynamic effects include rotational lift proportional to the
 product of a wing's rotational and translational velocities, labeled $L_{rot}$,
-as well as "added-mass" effects related to the accelerations of fluid
+as well as ``added-mass'' effects related to the accelerations of fluid
 surrounding the wing \cite{sedov1965two}.  These added mass terms are
 proportional to the wing's linear acceleration ($AM_{trans}$), rotational
-acceleration ($AM_{rot}$), or a product of the two ($AM_{trans-rot}$).  Two sets
-of quasi-steady equations from the literature include various combinations of
-such terms \cite{whitney2010aeromechanics,pesavento2004falling}, which allow
-more flexible model fitting through additional coefficients.
+acceleration ($AM_{rot}$), or a product of the two ($AM_{trans-rot}$). Whitney
+and Wood~\cite{whitney2010aeromechanics} and Pesavento and
+Wang~\cite{pesavento2004falling} describe quasi-steady models that use different
+combinations of such terms. We refer to these models in
+Table~\ref{table:eqmodels} and Figure~\ref{fig:pareto_mae} as WW and PW, respectively.
 
 Inertial forces acting on the wings are modeled as a sum of two contributions.
 The primary contribution results from the pendulum-like swinging motion that
 occurs when the deflection angle ($\psi$) flips at stroke reversal.  The
 secondary contribution results from small angle deviations from the horizontal
-flapping plane ($\theta$).  These angles are depicted in
-Figure~\ref{fig:apparatus}.  These inertial forces are given by:
+flapping plane ($\theta$). These inertial forces are given by:
 \begin{equation}\label{sdbla}
 F_{pendulum} = Y_{CM}M(\ddot{\psi}\sin\psi + \dot{\psi}^2\cos\psi)
 \end{equation}
@@ -507,7 +512,10 @@ and
 \begin{equation}\label{sdbla2}
 F_{deviation} = -X_{CM}M(\ddot{\theta}\cos\theta - \dot{\theta}^2\sin\theta),
 \end{equation}
-\noindent where \(X_{CM}\) and \(Y_{CM}\) are the coordinates of the center of wing area and \(M\) is the mass of the wing surface.
+\noindent where \(X_{CM}\) and \(Y_{CM}\) are the span-wise and chord-wise
+locations of the center of wing area and \(M\) is the mass of the wing surface.
+All of our analytical models for comparison include $F_{pendulum}$ and all
+except $V^2$ Planar 1 include $F_{deviation}$.
 
 % TODO: Remove all occurrences of the word "pareto" from the text, figures and filenames.
 \begin{figure}
