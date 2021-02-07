@@ -208,11 +208,11 @@ set(f1,'units','centimeters','paperunits','centimeters','papersize',[width heigh
     'paperposition',[0 0 width height])
 
 plot(sz_plpi,mean_nofit_mae_plpi,'b.','Markersize',largesize);
-text(sz_plpi,mean_nofit_mae_plpi,'   U^2 Planar 1','rotation',rotangle,'fontsize',fsize);
+text(sz_plpi,mean_nofit_mae_plpi,'   V^2 Planar 1','rotation',rotangle,'fontsize',fsize);
 plot(sz_plti,mean_nofit_mae_plti,'g.','Markersize',largesize);
-text(sz_plti,mean_nofit_mae_plti,'   U^2 Planar 2','rotation',rotangle,'fontsize',fsize);
+text(sz_plti,mean_nofit_mae_plti,'   V^2 Planar 2','rotation',rotangle,'fontsize',fsize);
 plot(sz_rw_liftonly,mean_nofit_mae_rw_liftonly,'c.','Markersize',largesize);
-text(sz_rw_liftonly,mean_nofit_mae_rw_liftonly,'   U^2 Total','rotation',rotangle,'fontsize',fsize);
+text(sz_rw_liftonly,mean_nofit_mae_rw_liftonly,'   V^2 Total','rotation',rotangle,'fontsize',fsize);
 plot(sz_rw_liftam,mean_nofit_mae_rw_liftam,'r.','Markersize',largesize);
 text(sz_rw_liftam,mean_nofit_mae_rw_liftam,'   WW','rotation',rotangle,'fontsize',fsize);
 plot(sz_jw,mean_nofit_mae_jw,'m.','Markersize',largesize);
@@ -331,11 +331,11 @@ set(f2,'units','centimeters','paperunits','centimeters','papersize',[width heigh
     'paperposition',[0 0 width height])
 
 plot(sz_plpi,mean_fit_mae_plpi,'b.','Markersize',largesize);
-text(sz_plpi,mean_fit_mae_plpi,'   U^2 Planar 1','rotation',rotangle,'fontsize',fsize);
+text(sz_plpi,mean_fit_mae_plpi,'   V^2 Planar 1','rotation',rotangle,'fontsize',fsize);
 plot(sz_plti,mean_fit_mae_plti,'g.','Markersize',largesize);
-text(sz_plti,mean_fit_mae_plti,'   U^2 Planar 2','rotation',rotangle,'fontsize',fsize);
+text(sz_plti,mean_fit_mae_plti,'   V^2 Planar 2','rotation',rotangle,'fontsize',fsize);
 plot(sz_rw_liftonly,mean_fit_mae_rw_liftonly,'c.','Markersize',largesize);
-text(sz_rw_liftonly,mean_fit_mae_rw_liftonly,'   U^2 Total','rotation',rotangle,'fontsize',fsize);
+text(sz_rw_liftonly,mean_fit_mae_rw_liftonly,'   V^2 Total','rotation',rotangle,'fontsize',fsize);
 plot(sz_rw_liftam,mean_fit_mae_rw_liftam,'r.','Markersize',largesize);
 text(sz_rw_liftam,mean_fit_mae_rw_liftam,'   WW','rotation',rotangle,'fontsize',fsize);
 plot(sz_jw,mean_fit_mae_jw,'m.','Markersize',largesize);
