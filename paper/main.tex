@@ -433,7 +433,7 @@ PW~\cite{pesavento2004falling} & \(L_{trans}, L_{rot}, AM_{trans},
   equations of lift.  The models are sorted by equation size, which is
   calculated as the sum of arithmetic and trigonometric operators required to
   compute a force prediction from kinematic and geometric data.  MAE reports
-  average mean absolute error (in Newtons of vertical force) for the ten test
+  average mean absolute error (in Newtons of vertical force) for the 10 test
   experiments.}
 \end{table}
 
@@ -503,8 +503,8 @@ Table~\ref{table:eqmodels} and Figure~\ref{fig:pareto_mae} as WW and PW, respect
 Inertial forces acting on the wings are modeled as a sum of two contributions.
 The primary contribution results from the pendulum-like swinging motion that
 occurs when the deflection angle ($\psi$) flips at stroke reversal.  The
-secondary contribution results from small angle deviations from the horizontal
-flapping plane ($\theta$). These inertial forces are given by:
+secondary contribution results from small angle deviations ($\theta$) from the horizontal
+flapping plane. These inertial forces are given by:
 \begin{equation}\label{sdbla}
 F_{pendulum} = Y_{CM}M(\ddot{\psi}\sin\psi + \dot{\psi}^2\cos\psi)
 \end{equation}
@@ -514,13 +514,13 @@ F_{deviation} = -X_{CM}M(\ddot{\theta}\cos\theta - \dot{\theta}^2\sin\theta),
 \end{equation}
 \noindent where \(X_{CM}\) and \(Y_{CM}\) are the span-wise and chord-wise
 locations of the center of wing area and \(M\) is the mass of the wing surface.
-All of our analytical models for comparison include $F_{pendulum}$ and all
+All of our analytical models for comparison include $F_{pendulum}$, and all
 except $V^2$ Planar 1 include $F_{deviation}$.
 
 % TODO: Remove all occurrences of the word "pareto" from the text, figures and filenames.
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{figures/mae_nofit}
+\includegraphics[width=0.6\textwidth]{figures/mae_nofit}
 \caption{Pareto plot of all data-driven (``EQ Models'') and analytical models
   using mean values for model coefficients. All data-driven models were smaller
   and more accurate than analytical models.\label{fig:pareto_mae}}
