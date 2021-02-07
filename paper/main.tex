@@ -362,36 +362,50 @@ samples were then used for data-driven modeling and analysis.
 
 % TODO: Reword this section to not focus on the number 58 right off the bat.
 \subsection*{Data-driven models}
-The strategy for modeling lift forces symbolically was to train candidate
-equations on 58 of the 68 total experiments simultaneously, with the remaining
-ten reserved for testing.  These 58 training sets were intended to represent a
-diverse sampling of wing geometry, flapping speed and amplitude combinations.
-The data consisted of instantaneous measured vertical force along with the
-measured value of each kinematic variable, the first and second derivatives of
-those variables, and the geometric parameters necessary to describe the wing's
-shape and distribution of area, totaling 31 separate variables. By training on
-58 experiments simultaneously, the symbolic regression algorithm generated
-equations that fit all of the data, using the some, but not all, of the provided
-variables to account for variations in kinematics and wing geometry between
-experiments. The search was conducted for approximately 24 hours, using 60 cores
-on a computing cluster.
+We trained a set of data-driven models to predict the instantaneous vertical
+force produced by flapping wings as a function of the kinematic variables and
+derivatives describing their motion, and geometric parameters describing the
+wing shape, totaling 31 separate variables. We trained these models on data from
+58 experiments, selected at random from our 68 total experiments, which
+represent a diverse sampling of wing geometry, flapping speed and amplitude
+combinations. The remaining 10 experiments were reserved for testing. Models
+were trained using the symbolic regression algorithm developed by Schmidt and
+Lipson \cite{schmidt2009distilling} to minimized the mean absolute error (MAE)
+between measured and predicted vertical force. The training process ran for
+approximately 24 hours using 60 cores on a computing cluster.
 
+By training on data representing a range of wing shapes and flapping speeds and
+amplitudes, the model search effectively narrowed the large set of input
+variables to the most preditive information and only utilized those terms that
+accounted for variations in kinematics and wing geometry between experiments.
 Table~\ref{table:eqmodels} lists the performance of five of the leading
-candidate models, along with five analytical models for comparison. We measure
-performance as the mean absolute error (MAE) between predicted and measured
-vertical force in the 10 test set experiments withheld from training. Our
-primary results, provided in the column labeled ``MAE Not Fitted'', use
-coefficient values for all models that were optimized on the training set.
-However, since the accuracy of the analytical models may depend on coefficients
-that vary with wing shape, flapping speed, or other factors, we also provide
-secondary results in the column labeled ``MAE Fitted'', which use coefficient
-values that were fitted to the test set experiments.
+candidate models, along with five analytical models for comparison, as measured
+by MAE in the 10 test set experiments withheld from training. These five models
+were selected from the Pareto frontier between MAE and formula complexity when
+training was terminated. The data-driven models presented here are functions of
+the kinematic variables ($\phi$, $\psi$, and $\theta$) and their derivatives,
+the wing span ($R$), the span-wise and chord-wise locations of the center of
+wing area ($X_{CM}$ and $Y_{CM}$), and constant coefficients. The analytical
+models for comparison will be described in the following section.
+
+Our primary results, provided in the column labeled ``MAE Not Fitted'', use
+fixed coefficient values for all models that were jointly optimized on the
+training set.  However, since the accuracy of the analytical models may depend
+on coefficients that vary with wing shape, flapping speed, or other factors, we
+also provide secondary results in the column labeled ``MAE Fitted'', which use
+coefficient values that were fitted individually to each of the test set
+experiments. In both categories of results, the data-driven models are more
+accurate, demonstrating that the relative performance of data-driven models is
+not simply due to the choice or optimization of coefficient values.
 
 % TODO: Make sure to define all variables used in these tables.
 % TODO: Figure out why we're calling it "U-squared".
 % TODO: If U-squared is "velocity squared" then  make sure that's consistent
 % with the use of $v^2$ in the L_{trans} formula (equation 1) and elsewhere.
 % TODO: Decide on better terms than "fitted" and "not fitted".
+% TODO: Explain that the 5 EQ models were taken from the Pareto frontier of
+% complexity vs. accuracy at the time of convergence.
+% TODO: Explain that C_1,...,C_5 are not the same in each EQ. Maybe do C_i,_j
 \begin{table}[ht]
 \small
 \centering
