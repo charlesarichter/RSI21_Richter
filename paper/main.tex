@@ -544,24 +544,17 @@ inertial calculation including out-of-plane deviation has a size of 27.
 
 Table~\ref{table:eqmodels} shows the size of all equations considered in this
 study, and indicates that the analytical models are all significantly more
-complex than our data-driven models.  One of the reasons for high complexity in
-the analytical models is the dependence on wing geometry and integration of
-forces over the span and chord of the wing.  A second reason for the complexity
-in analytical models is the number of geometric and coordinate transformations
-required to compute the necessary linear and rotational velocities.  In this
-sense, several terms generated during symbolic regression can be considered to
-be approximations of much more subtle calculations of kinematic quantities.
-
-The accuracy of each equation was measured as the mean absolute error (MAE)
-between the predicted and actual vertical force (in Newtons) produced by the
-flapping wing.  Figure~\ref{fig:pareto_mae} shows the Pareto plot of all models
-considered, depicting accuracy as a function of model complexity. It is
-important to note that all data-driven models have between three and five
-coefficients, so tuning these coefficients allows further minimization of error
-compared to the analytical models, which have between one and three.
-Nevertheless, discovery of models with smaller error than theoretical
-predictions that are simultaneously much simpler is a significant feat for the
-data mining process and symbolic regression.
+complex than our data-driven models.  Figure~\ref{fig:pareto_mae} illustrates
+model accuracy as a function of complexity.  One of the reasons for high
+complexity in the analytical models is the dependence on wing geometry and
+integration of forces over the span and chord of the wing.  A second reason for
+the complexity in analytical models is the number of geometric and coordinate
+transformations required to compute the necessary linear and rotational
+velocities.  In this sense, several terms generated during symbolic regression
+can be considered to be approximations of much more subtle calculations of
+kinematic quantities. Nevertheless, discovery of models with smaller error than
+theoretical predictions that are simultaneously much simpler is a significant
+feat for the data mining process and symbolic regression.
 
 \begin{figure}[ht]
 \centering
