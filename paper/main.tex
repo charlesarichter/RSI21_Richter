@@ -366,17 +366,15 @@ The strategy for modeling lift forces symbolically was to train candidate
 equations on 58 of the 68 total experiments simultaneously, with the remaining
 ten reserved for testing.  These 58 training sets were intended to represent a
 diverse sampling of wing geometry, flapping speed and amplitude combinations.
-The results from these 58 experiments were compiled into a single dataset
-listing roughly two periods of smoothed, registered flapping data per
-experiment.  The data consisted of instantaneous measured vertical force along
-with the measured value of each kinematic variable, the first and second
-derivatives of those variables, and the geometric parameters necessary to
-describe the wing's shape and distribution of area, totaling 31 separate
-variables. By training on 58 experiments simultaneously, the symbolic regression
-algorithm generated equations that fit all of the data, using the some, but not
-all, of the provided variables to account for variations in kinematics and wing
-geometry between experiments. The search was conducted for approximately 24
-hours, using 60 cores on a computing cluster.
+The data consisted of instantaneous measured vertical force along with the
+measured value of each kinematic variable, the first and second derivatives of
+those variables, and the geometric parameters necessary to describe the wing's
+shape and distribution of area, totaling 31 separate variables. By training on
+58 experiments simultaneously, the symbolic regression algorithm generated
+equations that fit all of the data, using the some, but not all, of the provided
+variables to account for variations in kinematics and wing geometry between
+experiments. The search was conducted for approximately 24 hours, using 60 cores
+on a computing cluster.
 
 Table~\ref{table:eqmodels} lists the performance of five of the leading
 candidate models, along with five analytical models for comparison. We measure
