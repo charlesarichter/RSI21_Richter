@@ -399,7 +399,8 @@ accurate, demonstrating that the relative performance of data-driven models is
 not simply due to the choice or optimization of coefficient values.
 
 % TODO: Make sure to define all variables used in these tables.
-% TODO: Figure out why we're calling it "U-squared".
+% TODO: Figure out why we're calling it "U-squared". -->> Change to V^2
+% everywhere (see Whitney Wood paper just below equation 2.18).
 % TODO: If U-squared is "velocity squared" then  make sure that's consistent
 % with the use of $v^2$ in the L_{trans} formula (equation 1) and elsewhere.
 % TODO: Decide on better terms than "fitted" and "not fitted".
@@ -479,6 +480,9 @@ where \(v\) is the wing velocity, \(\rho\) is the fluid density, \(A\) is the ar
 \begin{equation}
 C_L = C_{Lmax}\sin(2\alpha).
 \end{equation}
+
+% TODO: Understand and verify (numerically) how we get an effective v^2 via
+% integration along the span, and document that in the code.
 
 Other aerodynamic contributors include rotational lift proportional to the
 product of a wing's rotational and translational velocities, labeled $L_{rot}$,
