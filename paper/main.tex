@@ -593,37 +593,38 @@ fails to do so.}
 \label{fig:eq_goodbad}
 \end{figure}
 
-\subsection*{Performance of models trained on one experiment versus many experiments}
-Figure~\ref{fig:eq_goodbad_1} illustrates the predictive performance of two
-models on data within their training sets, while
-Figures~\ref{fig:eq_goodbad_2},~\ref{fig:eq_goodbad_3},
-and~\ref{fig:eq_goodbad_4} illustrate the performance of those same two models
-on data outside their training sets. The differences between these two models
-result from the fact that one of them, $EQ_4$ from Table~\ref{table:eqmodels}
-(drawn in blue), was trained on 58 separate experiments simultaneously, whereas
-the other one, shown below (drawn in red), is one of many models trained only on
-the single experiment shown in Figure~\ref{fig:eq_goodbad_1}:
+\subsection*{Generalization of Data-Driven Models}
+To evaluate the generalization properties of our data-driven models, we compare
+one of our models, $EQ_4$, which was trained on 58 training experiments, to a
+model that was trained on only a single experiment:
 \begin{align}
  Force = \frac{C_1 + C_2\psi^2 - C_3\psi}{C_4 + \ddot{\theta} + C_5\dot{\theta} + \cos(C_6 -
   \frac{C_7}{\psi^2} - C_8\psi)} - C_9.
 \label{eq:badeq}
 \end{align}
-Thus, $EQ_4$ shows strong qualitative and quantitative agreement with all of the
+Figure~\ref{fig:eq_goodbad_1} illustrates the predictive performance of these
+two models on data within their training sets, and indeed this figure
+illustrates the \emph{only} data used to train equation~\eqref{eq:badeq}.
+Figures~\ref{fig:eq_goodbad_2},~\ref{fig:eq_goodbad_3},
+and~\ref{fig:eq_goodbad_4} illustrate the performance of these same two models
+on test data outside their training sets.
+
+$EQ_4$ shows strong qualitative and quantitative agreement with all of the
 experiments in Figure~\ref{fig:eq_goodbad}, indicating that this model is not
-over-fit but in fact generalizes well to new data. Equation~\eqref{eq:badeq}, on
-the other hand, fails to accurately predict the recorded data outside its
+over-fit but in fact generalizes well to new data. On the other hand,
+equation~\eqref{eq:badeq} fails to accurately predict the data outside its
 training set.  Insufficient data and over-fitting are potential pitfalls of
 data-driven modeling, but are overcome in this case with a diverse sampling of
-training data.
+training data that span the parameter space of interest for the modeling task.
 
 Since Equation~\eqref{eq:badeq} is unable to accurately predict forces outside
 its training set, it is unlikely to offer any insight into the underlying
 physical processes.  $EQ_4$, however, must capture some of the underlying
-structure of the physics in order to generalize to data upon which it was not
-trained.  In data-driven modeling, training on many experiments simultaneously
+structure of the physics in order to generalize to data outside its training
+set. In data-driven modeling, training on many experiments simultaneously
 helps to reject candidate equations that may fit some, but not all, of the data,
 and helps to retain those models that reflect the underlying physics and offer
-insight into the structure of the additive components that compose the observed
+insight into the structure of the components that make up the observed
 behavior of a complex dynamical system.
 
 \subsection*{Correspondence of physical terms}
