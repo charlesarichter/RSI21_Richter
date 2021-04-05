@@ -87,8 +87,17 @@ regression, evolutionary computation}
 
 Forces produced by the flapping wings of insects, birds and micro air vehicles
 are of crucial importance for flight, yet they are subtle and difficult to
-model.  Many studies have developed equations and solution techniques to
-understand the fluid flow around these wings, to compute control actions
+model. In many cases, the flapping motion is only partially actuated and
+controlled, while essential characteristics like angle of attack through the
+wing stroke result passively from complex inertial and aerodynamic forces and
+rely on the compliance of a flexible wing structure.
+Figure~\ref{fig:wing_frames} shows a sequence of frames from a high-speed video
+of a flexible 3D printed wing being actuated only in the primary flapping
+motion, yet the wing passively twists and deflects to achieve an angle of attack
+of approximately 45\textdegree, which allows it to produce vertical lift.
+
+Many studies have developed equations and solution techniques to
+understand the fluid flow around flapping wings, to compute control actions
 required for stable flight, or to optimize wing design. Aerodynamic studies
 related to insect flight and intermediate Reynolds numbers (Re 100-10,000) have
 generally focused on either numerical solutions of Navier-Stokes equations in
@@ -108,6 +117,13 @@ methods have shown qualitative and quantitative agreement with experiments
 \cite{wang2004unsteady}.
 
 % \subsection{Automated modeling} 
+
+\begin{figure}
+\centering
+\includegraphics[trim=0 120 70 170, clip, width=0.8\textwidth]{figures/wing_frames}
+\caption{Composite image showing the flapping motion of a 3D printed
+  wing captured in high-speed video.\label{fig:wing_frames}}
+\end{figure}
 
 Quasi-steady representations of lift are particularly well suited to the process
 of symbolic regression, which harnesses computational power to conduct an
